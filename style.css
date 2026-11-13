@@ -32,10 +32,10 @@ body {
 }
 
 .container {
-    max-width: 1140px;
+    max-width: 1320px; /* Aumentamos de 1140px para 1320px para ocupar mais espaço nas pontas */
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px; /* Aumentamos levemente o respiro interno nas laterais para não colar no vidro da tela */
 }
 
 /* --- CABEÇALHO --- */
