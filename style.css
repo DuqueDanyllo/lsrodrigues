@@ -1,9 +1,9 @@
 :root {
-    --azul-fundo: #091522;       /* Fundo escuro técnico */
-    --azul-card: #102438;        /* Fundo dos painéis */
-    --azul-marca: #12476B;       /* Azul da logo */
-    --ciano: #2cb6b6;            /* Destaque ciano da logo */
-    --dourado: #F59E0B;          /* Detalhe energia/alerta */
+    --azul-fundo: #091522;
+    --azul-card: #102438;
+    --azul-marca: #12476B;
+    --ciano: #2cb6b6;
+    --dourado: #F59E0B;
     --texto-claro: #F1F5F9;
     --texto-suave: #94A3B8;
     --borda-tecnica: rgba(44, 182, 182, 0.25);
@@ -24,7 +24,7 @@ body {
     background-color: var(--azul-fundo);
     color: var(--texto-claro);
     line-height: 1.6;
-    /* Grade técnica sutil de engenharia no fundo */
+    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
     background-image: 
         linear-gradient(rgba(44, 182, 182, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(44, 182, 182, 0.04) 1px, transparent 1px);
@@ -33,16 +33,17 @@ body {
 
 .container {
     max-width: 1140px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Cabeçalho */
+/* --- CABEÇALHO --- */
 .cabecalho {
-    background-color: rgba(9, 21, 34, 0.95);
+    background-color: rgba(9, 21, 34, 0.98);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--borda-tecnica);
-    padding: 16px 0;
+    padding: 14px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -57,7 +58,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
     color: var(--texto-claro);
 }
@@ -66,10 +67,9 @@ body {
     background: linear-gradient(135deg, var(--azul-marca), var(--ciano));
     color: #fff;
     font-weight: 800;
-    font-size: 1.3rem;
-    padding: 8px 12px;
+    font-size: 1.2rem;
+    padding: 6px 10px;
     border-radius: 6px;
-    letter-spacing: 1px;
 }
 
 .logo-texto {
@@ -79,27 +79,26 @@ body {
 }
 
 .logo-texto strong {
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
+    font-size: 1rem;
 }
 
 .logo-texto span {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--ciano);
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
 }
 
 .menu {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
 }
 
 .menu a {
     color: var(--texto-claro);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -111,7 +110,7 @@ body {
 .btn-nav {
     background-color: var(--ciano);
     color: var(--azul-fundo) !important;
-    padding: 10px 18px;
+    padding: 8px 16px;
     border-radius: 6px;
     font-weight: 700 !important;
 }
@@ -121,20 +120,20 @@ body {
     background: none;
     border: 1px solid var(--borda-tecnica);
     color: var(--texto-claro);
-    font-size: 1.5rem;
-    padding: 4px 10px;
+    font-size: 1.4rem;
+    padding: 6px 10px;
     border-radius: 6px;
     cursor: pointer;
 }
 
-/* Hero */
+/* --- HERO SECTION --- */
 .hero {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .grid-hero {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
     align-items: center;
 }
@@ -144,18 +143,18 @@ body {
     background-color: rgba(44, 182, 182, 0.12);
     border: 1px solid var(--borda-tecnica);
     color: var(--ciano);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     padding: 6px 12px;
     border-radius: 4px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     letter-spacing: 1px;
 }
 
 .hero h1 {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .destaque {
@@ -164,13 +163,13 @@ body {
 
 .hero p {
     color: var(--texto-suave);
-    font-size: 1.1rem;
-    margin-bottom: 32px;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
 }
 
 .hero-acoes {
     display: flex;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
@@ -178,10 +177,11 @@ body {
     display: inline-block;
     background-color: var(--ciano);
     color: var(--azul-fundo);
-    padding: 14px 26px;
+    padding: 12px 24px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
+    text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -194,10 +194,11 @@ body {
     display: inline-block;
     border: 1px solid var(--borda-tecnica);
     color: var(--texto-claro);
-    padding: 14px 26px;
+    padding: 12px 24px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
+    text-align: center;
     transition: background 0.3s;
 }
 
@@ -212,11 +213,12 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
 }
 
 .painel-topo {
     background-color: #0c1b2b;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-bottom: 1px solid var(--borda-tecnica);
     display: flex;
     align-items: center;
@@ -224,75 +226,74 @@ body {
 }
 
 .ponto {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
 }
 .verde { background-color: #10B981; }
 .amarelo { background-color: #F59E0B; }
 
 .titulo-painel {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--texto-suave);
-    letter-spacing: 1px;
-    margin-left: 6px;
+    letter-spacing: 0.5px;
 }
 
 .painel-dados {
-    padding: 24px;
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .dado-item {
     background-color: rgba(9, 21, 34, 0.6);
-    padding: 16px;
+    padding: 14px;
     border-radius: 8px;
     border-left: 3px solid var(--ciano);
 }
 
 .dado-label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--texto-suave);
     margin-bottom: 4px;
 }
 
 .dado-valor {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
 }
 
 .ciano { color: var(--ciano); }
 .dourado { color: var(--dourado); }
 
-/* Seções e Abas Interativas */
+/* --- SEÇÕES E ABAS --- */
 .secao {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .cabecalho-secao {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .subtitulo-secao {
     color: var(--ciano);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
 .cabecalho-secao h2 {
-    font-size: 2.1rem;
-    margin-top: 8px;
+    font-size: 1.9rem;
+    margin-top: 6px;
 }
 
 .tabs-controle {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 25px;
     flex-wrap: wrap;
 }
 
@@ -300,9 +301,9 @@ body {
     background-color: var(--azul-card);
     color: var(--texto-suave);
     border: 1px solid var(--borda-tecnica);
-    padding: 14px 24px;
+    padding: 12px 20px;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
@@ -324,7 +325,7 @@ body {
     background-color: var(--azul-card);
     border: 1px solid var(--borda-tecnica);
     border-radius: 12px;
-    padding: 40px;
+    padding: 30px;
     animation: fadeIn 0.4s ease;
 }
 
@@ -333,33 +334,32 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .painel-info h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--ciano);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .painel-info p {
     color: var(--texto-suave);
-    margin-bottom: 24px;
-    max-width: 750px;
+    margin-bottom: 20px;
 }
 
 .lista-tecnica {
     list-style: none;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .lista-tecnica li {
-    margin-bottom: 10px;
-    font-size: 1.05rem;
+    margin-bottom: 8px;
+    font-size: 0.98rem;
 }
 
-/* Simulador Solar */
+/* --- SIMULADOR SOLAR --- */
 .fundo-escuro-alt {
     background-color: #060f19;
     border-top: 1px solid var(--borda-tecnica);
@@ -369,80 +369,79 @@ body {
 .simulador-box {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
+    gap: 30px;
     align-items: center;
     background-color: var(--azul-card);
-    padding: 40px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid var(--borda-tecnica);
 }
 
 .simulador-texto h2 {
-    font-size: 1.9rem;
-    margin: 10px 0 14px 0;
+    font-size: 1.7rem;
+    margin: 8px 0 12px 0;
 }
 
 .controle-slider {
-    margin-top: 28px;
+    margin-top: 24px;
 }
 
 .controle-slider label {
     display: block;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 .controle-slider strong {
     color: var(--dourado);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 input[type="range"] {
     width: 100%;
     accent-color: var(--ciano);
     cursor: pointer;
-    height: 8px;
+    height: 6px;
 }
 
 .slider-limites {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--texto-suave);
     margin-top: 6px;
 }
 
 .simulador-resultado {
     background-color: var(--azul-fundo);
-    padding: 28px;
+    padding: 24px;
     border-radius: 10px;
     border: 1px solid var(--borda-tecnica);
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
 }
 
 .res-card span {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--texto-suave);
 }
 
 .res-card strong {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
 }
 
 .largura-total {
-    text-align: center;
     width: 100%;
 }
 
-/* Formulário de Orçamento / Visita Técnica */
+/* --- FORMULÁRIO DE ORÇAMENTO --- */
 .form-engenharia {
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
     background-color: var(--azul-card);
-    padding: 40px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid var(--borda-tecnica);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -451,17 +450,17 @@ input[type="range"] {
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
 .campo-grupo {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .campo-grupo label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--texto-claro);
 }
@@ -472,10 +471,11 @@ input[type="range"] {
     background-color: var(--azul-fundo);
     border: 1px solid var(--borda-tecnica);
     color: var(--texto-claro);
-    padding: 14px 16px;
+    padding: 12px 14px;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     outline: none;
+    width: 100%;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -495,47 +495,48 @@ input[type="range"] {
     width: 100%;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
-    margin-top: 24px;
-    text-align: center;
+    font-size: 1.05rem;
+    margin-top: 20px;
 }
 
-/* Diferenciais */
+/* --- DIFERENCIAIS --- */
 .grid-diferenciais {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .dif-item {
     background-color: var(--azul-card);
-    padding: 30px;
+    padding: 25px;
     border-radius: 10px;
     border: 1px solid var(--borda-tecnica);
 }
 
 .dif-num {
     color: var(--ciano);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .dif-item h3 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .dif-item p {
     color: var(--texto-suave);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
-/* Rodapé e Botão Flutuante */
+/* --- RODAPÉ E BOTÃO FLUTUANTE --- */
 .rodape {
     background-color: #050c14;
-    padding: 40px 0;
+    padding: 35px 0;
     border-top: 1px solid var(--borda-tecnica);
     color: var(--texto-suave);
+    font-size: 0.9rem;
 }
 
 .flex-footer {
@@ -543,19 +544,20 @@ input[type="range"] {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 16px;
 }
 
 .whatsapp-float {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 20px;
+    right: 20px;
     background-color: #25D366;
     color: #fff;
-    padding: 14px 22px;
+    padding: 12px 20px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
+    font-size: 0.95rem;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
     z-index: 999;
     transition: transform 0.2s;
@@ -565,9 +567,20 @@ input[type="range"] {
     transform: scale(1.05);
 }
 
-/* Ajustes gerais para telas menores */
-@media (max-width: 850px) {
-    /* Força o menu a esconder no mobile e garante que o botão apareça */
+/* --- MEDIA QUERIES (RESPONSIVIDADE RIGOROSA PARA CELULARES) --- */
+@media (max-width: 900px) {
+    .grid-hero, 
+    .simulador-box {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
     .btn-mobile {
         display: block !important;
     }
@@ -578,10 +591,10 @@ input[type="range"] {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--azul-card);
+        background-color: rgba(9, 21, 34, 0.98);
         border-bottom: 1px solid var(--borda-tecnica);
         padding: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     }
 
     nav.aberto {
@@ -590,8 +603,9 @@ input[type="range"] {
 
     .menu {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        align-items: stretch;
+        gap: 14px;
+        text-align: center;
     }
 
     .btn-nav {
@@ -599,38 +613,24 @@ input[type="range"] {
         text-align: center;
     }
 
-    /* Reduz o tamanho dos títulos gigantes para não quebrar o layout no celular */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .cabecalho-secao h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
-    .painel-info h3 {
-        font-size: 1.3rem;
-    }
-
-    /* Transforma grids de 2 colunas em 1 coluna no mobile */
-    .grid-hero, 
-    .simulador-box, 
-    .form-grid,
-    .painel-dados {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .hero {
+    .hero, .secao {
         padding: 40px 0;
     }
 
-    .secao {
-        padding: 50px 0;
-    }
-
     .tab-painel, 
-    .form-engenharia,
+    .form-engenharia, 
     .simulador-box {
         padding: 20px;
     }
