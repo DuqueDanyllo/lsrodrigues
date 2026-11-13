@@ -8,66 +8,215 @@
 </head>
 <body>
 
+    <!-- Cabeçalho Técnico -->
     <header class="cabecalho">
         <div class="container flex-header">
-            <h1 class="logo">LS RODRIGUES <span>ENGENHARIA</span></h1>
-            <nav>
+            <a href="#home" class="logo">
+                <div class="logo-icone">LS</div>
+                <div class="logo-texto">
+                    <strong>LS RODRIGUES</strong>
+                    <span>ENGENHARIA & SOLUÇÕES</span>
+                </div>
+            </a>
+
+            <button class="btn-mobile" id="btn-mobile" aria-label="Abrir Menu">☰</button>
+
+            <nav id="nav-menu">
                 <ul class="menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contato" class="btn-nav">Orçamento</a></li>
+                    <li><a href="#servicos">Especialidades</a></li>
+                    <li><a href="#simulador">Simulador Solar</a></li>
+                    <li><a href="#diferenciais">Normas & Garantia</a></li>
+                    <li><a href="https://wa.me/5527995207409" target="_blank" class="btn-nav">Solicitar Orçamento</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Seção Principal (Hero) -->
+        <!-- Hero Section com Identidade de Engenharia -->
         <section id="home" class="hero">
-            <div class="container">
-                <h2>Soluções em Energia Solar, Elétrica e Automação</h2>
-                <p>Projetos residenciais e comerciais com segurança, economia e tecnologia de ponta.</p>
-                <a href="https://wa.me/5527995207409" target="_blank" class="btn-principal">Solicitar Orçamento no WhatsApp</a>
-            </div>
-        </section>
+            <div class="container grid-hero">
+                <div class="hero-conteudo">
+                    <span class="badge-tecnica">⚡ PROJETOS RESIDENCIAIS & COMERCIAIS</span>
+                    <h1>Engenharia de precisão para <span class="destaque">reduzir custos</span> e automatizar seu imóvel.</h1>
+                    <p>Instalações elétricas dentro das normas técnicas, sistemas fotovoltaicos de alta eficiência e automação inteligente no Espírito Santo.</p>
+                    
+                    <div class="hero-acoes">
+                        <a href="#simulador" class="btn-principal">Simular Economia Solar</a>
+                        <a href="#servicos" class="btn-secundario">Ver Especialidades</a>
+                    </div>
+                </div>
 
-        <!-- Seção de Serviços -->
-        <section id="servicos" class="secao">
-            <div class="container">
-                <h2 class="titulo-secao">Nossos Serviços</h2>
-                <div class="grid-servicos">
-                    <div class="card">
-                        <h3>Energia Solar</h3>
-                        <p>Projetos fotovoltaicos completos para reduzir até 95% da sua conta de luz com homologação inclusa.</p>
+                <!-- Painel Visual Técnico (Diferente de cards de contabilidade) -->
+                <div class="painel-engenharia">
+                    <div class="painel-topo">
+                        <span class="ponto verde"></span>
+                        <span class="ponto amarelo"></span>
+                        <span class="titulo-painel">STATUS DO SISTEMA // EFICIÊNCIA ENERGÉTICA</span>
                     </div>
-                    <div class="card">
-                        <h3>Elétrica Residencial e Comercial</h3>
-                        <p>Instalações, manutenção preventiva, montagem de quadros elétricos e adequação às normas técnicas.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Automação & Controle</h3>
-                        <p>Iluminação inteligente, motores de portão, fechaduras digitais e controle de acesso integrado.</p>
+                    <div class="painel-dados">
+                        <div class="dado-item">
+                            <span class="dado-label">Economia na Fatura</span>
+                            <strong class="dado-valor ciano">Até 95%</strong>
+                        </div>
+                        <div class="dado-item">
+                            <span class="dado-label">Conformidade Técnica</span>
+                            <strong class="dado-valor">NBR 5410 / 16690</strong>
+                        </div>
+                        <div class="dado-item">
+                            <span class="dado-label">Atendimento</span>
+                            <strong class="dado-valor">Grande Vitória & ES</strong>
+                        </div>
+                        <div class="dado-item">
+                            <span class="dado-label">Homologação</span>
+                            <strong class="dado-valor dourado">100% Inclusa</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Sobre -->
-        <section id="sobre" class="secao fundo-alternativo">
+        <!-- Seção de Serviços com Abas Interativas (Tabs) -->
+        <section id="servicos" class="secao">
             <div class="container">
-                <h2 class="titulo-secao">Sobre a LS Rodrigues</h2>
-                <p>Compromisso com a qualidade técnica, segurança e inovação em cada obra executada no Espírito Santo.</p>
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">O QUE FAZEMOS</span>
+                    <h2>Soluções Completas em Engenharia</h2>
+                </div>
+
+                <!-- Botões das Abas -->
+                <div class="tabs-controle">
+                    <button class="tab-btn ativo" data-alvo="solar">☀️ Energia Solar</button>
+                    <button class="tab-btn" data-alvo="eletrica">⚡ Elétrica Predial & Comercial</button>
+                    <button class="tab-btn" data-alvo="automacao">📱 Automação & Acesso</button>
+                </div>
+
+                <!-- Conteúdo Dinâmico das Abas -->
+                <div class="tabs-conteudo">
+                    <!-- Aba 1: Solar -->
+                    <div class="tab-painel ativo" id="solar">
+                        <div class="painel-info">
+                            <h3>Sistemas Fotovoltaicos On-Grid e Off-Grid</h3>
+                            <p>Dimensionamento personalizado para residências, comércios e empresas gerarem a própria energia limpa com retorno rápido do investimento.</p>
+                            <ul class="lista-tecnica">
+                                <li>✓ Projeto de engenharia e homologação junto à concessionária (EDP)</li>
+                                <li>✓ Instalação de painéis solares e inversores de alta performance</li>
+                                <li>✓ Manutenção preventiva, limpeza técnica e monitoramento por aplicativo</li>
+                            </ul>
+                            <a href="https://wa.me/5527995207409?text=Olá! Gostaria de um orçamento para Energia Solar." target="_blank" class="btn-principal">Orçar Energia Solar</a>
+                        </div>
+                    </div>
+
+                    <!-- Aba 2: Elétrica -->
+                    <div class="tab-painel" id="eletrica">
+                        <div class="painel-info">
+                            <h3>Instalações Elétricas de Baixa e Média Tensão</h3>
+                            <p>Execução rigorosa seguindo a norma NBR 5410 para eliminar riscos de curto-circuito, sobrecarga e desperdício de energia.</p>
+                            <ul class="lista-tecnica">
+                                <li>✓ Montagem e organização de Quadros de Distribuição (QDC)</li>
+                                <li>✓ Padrão de entrada, aterramento e proteção contra surtos (DPS)</li>
+                                <li>✓ Projetos luminotécnicos internos e externos</li>
+                            </ul>
+                            <a href="https://wa.me/5527995207409?text=Olá! Preciso de um serviço de Elétrica." target="_blank" class="btn-principal">Orçar Serviço Elétrico</a>
+                        </div>
+                    </div>
+
+                    <!-- Aba 3: Automação -->
+                    <div class="tab-painel" id="automacao">
+                        <div class="painel-info">
+                            <h3>Automação Residencial, Comercial e Controle de Acesso</h3>
+                            <p>Controle iluminação, climatização, portões e segurança diretamente pelo smartphone ou comandos de voz.</p>
+                            <ul class="lista-tecnica">
+                                <li>✓ Automação de iluminação, cortinas e cenários inteligentes</li>
+                                <li>✓ Instalação de fechaduras digitais, biometria e interfones</li>
+                                <li>✓ Automatização de portões eletrônicos residenciais e industriais</li>
+                            </ul>
+                            <a href="https://wa.me/5527995207409?text=Olá! Tenho interesse em Automação e Controle de Acesso." target="_blank" class="btn-principal">Orçar Automação</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Interativa: Simulador de Economia Solar -->
+        <section id="simulador" class="secao fundo-escuro-alt">
+            <div class="container">
+                <div class="simulador-box">
+                    <div class="simulador-texto">
+                        <span class="subtitulo-secao">CALCULADORA RÁPIDA</span>
+                        <h2>Quanto você pode economizar com Energia Solar?</h2>
+                        <p>Arraste a barra abaixo para informar o valor médio da sua conta de luz mensal:</p>
+                        
+                        <div class="controle-slider">
+                            <label for="valor-conta">Sua conta atual: <strong id="display-conta">R$ 500</strong>/mês</label>
+                            <input type="range" id="valor-conta" min="200" max="5000" step="50" value="500">
+                            <div class="slider-limites">
+                                <span>R$ 200</span>
+                                <span>R$ 5.000+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="simulador-resultado">
+                        <div class="res-card">
+                            <span>Economia Mensal Estimada</span>
+                            <strong id="economia-mensal" class="ciano">R$ 450,00</strong>
+                        </div>
+                        <div class="res-card">
+                            <span>Economia em 1 Ano</span>
+                            <strong id="economia-anual" class="dourado">R$ 5.400,00</strong>
+                        </div>
+                        <a id="btn-enviar-simulacao" href="https://wa.me/5527995207409?text=Olá! Fiz uma simulação no site com conta de R$ 500 e quero saber mais." target="_blank" class="btn-principal largura-total">
+                            Receber Proposta Personalizada
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferenciais -->
+        <section id="diferenciais" class="secao">
+            <div class="container">
+                <div class="grid-diferenciais">
+                    <div class="dif-item">
+                        <div class="dif-num">01</div>
+                        <h3>Segurança Normativa</h3>
+                        <p>Todos os projetos seguem rigorosamente as normas da ABNT e exigências da concessionária.</p>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">02</div>
+                        <h3>Equipamentos Certificados</h3>
+                        <p>Trabalhamos apenas com inversores, módulos e componentes homologados pelo INMETRO.</p>
+                    </div>
+                    <div class="dif-item">
+                        <div class="dif-num">03</div>
+                        <h3>Atendimento Direto</h3>
+                        <p>Acompanhamento técnico do projeto até a entrega final da obra, sem intermediários.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer id="contato" class="rodape">
-        <div class="container">
-            <p><strong>LS Rodrigues Engenharia</strong> — Energia Solar | Elétrica | Automação</p>
-            <p>WhatsApp: (27) 99520-7409 | @lsrodrigueseng</p>
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container flex-footer">
+            <div>
+                <strong>LS RODRIGUES ENGENHARIA</strong>
+                <p>Energia Solar | Elétrica | Automação Residencial e Comercial[cite: 1]</p>
+            </div>
+            <div class="footer-contato">
+                <p>WhatsApp: (27) 99520-7409[cite: 1]</p>
+                <p>Instagram: @lsrodrigueseng[cite: 1]</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5527995207409" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        💬 Orçamento
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
