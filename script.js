@@ -19,14 +19,11 @@ const paineisTab = document.querySelectorAll('.tab-painel');
 
 botoesTab.forEach(botao => {
     botao.addEventListener('click', () => {
-        // Remove a classe 'ativo' de todos os botões e painéis
         botoesTab.forEach(btn => btn.classList.remove('ativo'));
         paineisTab.forEach(painel => painel.classList.remove('ativo'));
 
-        // Ativa o botão clicado
         botao.classList.add('ativo');
 
-        // Pega o ID alvo pelo atributo data-alvo e mostra o painel correspondente
         const alvoId = botao.getAttribute('data-alvo');
         document.getElementById(alvoId).classList.add('ativo');
     });
@@ -37,9 +34,7 @@ const sliderConta = document.getElementById('valor-conta');
 const displayConta = document.getElementById('display-conta');
 const displayMensal = document.getElementById('economia-mensal');
 const displayAnual = document.getElementById('economia-anual');
-const btnSimulacao = document.getElementById('btn-enviar-simulacao');
 
-// Função para formatar números em Real Brasileiro (R$)
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
@@ -47,16 +42,51 @@ function formatarMoeda(valor) {
 sliderConta.addEventListener('input', () => {
     const valorAtual = Number(sliderConta.value);
     
-    // Considera uma economia média realista de 90% na fatura
     const economiaMes = valorAtual * 0.90;
     const economiaAno = economiaMes * 12;
 
-    // Atualiza os textos na tela
     displayConta.textContent = formatarMoeda(valorAtual);
     displayMensal.textContent = formatarMoeda(economiaMes);
     displayAnual.textContent = formatarMoeda(economiaAno);
+});
 
-    // Atualiza dinamicamente o link do WhatsApp com os valores simulados
-    const mensagem = `Olá! Fiz uma simulação no site da LS Rodrigues. Minha conta é de ${formatarMoeda(valorAtual)}/mês e vi que posso economizar cerca de ${formatarMoeda(economiaAnual)} por ano. Gostaria de um orçamento!`;
-    btnSimulacao.href = `https://wa.me/5527995207409?text=${encodeURIComponent(mensagem)}`;
+// 4. Formulário de Agendamento de Visita e Orçamento
+const formOrcamento = document.getElementById('form-orcamento');
+const inputDataVisita = document.getElementById('data-visita');
+
+// Bloqueia datas anteriores a hoje no calendário
+const hoje = new Date().toISOString().split('T')[0];
+inputDataVisita.setAttribute('min', hoje);
+
+formOrcamento.addEventListener('submit', function(evento) {
+    evento.preventDefault();
+
+    const nome = document.getElementById('nome-cliente').value.trim();
+    const servico = document.getElementById('tipo-servico').value;
+    const endereco = document.getElementById('endereco-cliente').value.trim();
+    const dataBruta = document.getElementById('data-visita').value;
+    const turno = document.getElementById('turno-visita').value;
+    const imovel = document.getElementById('tipo-imovel').value;
+    const detalhes = document.getElementById('detalhes-projeto').value.trim();
+
+    // Converte data de YYYY-MM-DD para DD/MM/YYYY
+    const [ano, mes, dia] = dataBruta.split('-');
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    // Monta a mensagem para o WhatsApp
+    let textoWhatsApp = `*SOLICITAÇÃO DE ORÇAMENTO / VISITA TÉCNICA*\n\n`;
+    textoWhatsApp += `*Cliente:* ${nome}\n`;
+    textoWhatsApp += `*Serviço:* ${servico}\n`;
+    textoWhatsApp += `*Imóvel:* ${imovel}\n`;
+    textoWhatsApp += `*Endereço:* ${endereco}\n`;
+    textoWhatsApp += `*Data sugerida:* ${dataFormatada} (${turno})\n`;
+
+    if (detalhes !== "") {
+        textoWhatsApp += `*Detalhes:* ${detalhes}\n`;
+    }
+
+    const telefoneEmpresa = "5527995207409";
+    const urlWhatsApp = `https://wa.me/${telefoneEmpresa}?text=${encodeURIComponent(textoWhatsApp)}`;
+
+    window.open(urlWhatsApp, '_blank');
 });

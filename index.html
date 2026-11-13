@@ -26,7 +26,7 @@
                     <li><a href="#servicos">Especialidades</a></li>
                     <li><a href="#simulador">Simulador Solar</a></li>
                     <li><a href="#diferenciais">Normas & Garantia</a></li>
-                    <li><a href="https://wa.me/5527995207409" target="_blank" class="btn-nav">Solicitar Orçamento</a></li>
+                    <li><a href="#orcamento" class="btn-nav">Solicitar Orçamento</a></li>
                 </ul>
             </nav>
         </div>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <!-- Painel Visual Técnico (Diferente de cards de contabilidade) -->
+                <!-- Painel Visual Técnico -->
                 <div class="painel-engenharia">
                     <div class="painel-topo">
                         <span class="ponto verde"></span>
@@ -103,7 +103,7 @@
                                 <li>✓ Instalação de painéis solares e inversores de alta performance</li>
                                 <li>✓ Manutenção preventiva, limpeza técnica e monitoramento por aplicativo</li>
                             </ul>
-                            <a href="https://wa.me/5527995207409?text=Olá! Gostaria de um orçamento para Energia Solar." target="_blank" class="btn-principal">Orçar Energia Solar</a>
+                            <a href="#orcamento" class="btn-principal">Orçar Energia Solar</a>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@
                                 <li>✓ Padrão de entrada, aterramento e proteção contra surtos (DPS)</li>
                                 <li>✓ Projetos luminotécnicos internos e externos</li>
                             </ul>
-                            <a href="https://wa.me/5527995207409?text=Olá! Preciso de um serviço de Elétrica." target="_blank" class="btn-principal">Orçar Serviço Elétrico</a>
+                            <a href="#orcamento" class="btn-principal">Orçar Serviço Elétrico</a>
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@
                                 <li>✓ Instalação de fechaduras digitais, biometria e interfones</li>
                                 <li>✓ Automatização de portões eletrônicos residenciais e industriais</li>
                             </ul>
-                            <a href="https://wa.me/5527995207409?text=Olá! Tenho interesse em Automação e Controle de Acesso." target="_blank" class="btn-principal">Orçar Automação</a>
+                            <a href="#orcamento" class="btn-principal">Orçar Automação</a>
                         </div>
                     </div>
                 </div>
@@ -166,16 +166,94 @@
                             <span>Economia em 1 Ano</span>
                             <strong id="economia-anual" class="dourado">R$ 5.400,00</strong>
                         </div>
-                        <a id="btn-enviar-simulacao" href="https://wa.me/5527995207409?text=Olá! Fiz uma simulação no site com conta de R$ 500 e quero saber mais." target="_blank" class="btn-principal largura-total">
-                            Receber Proposta Personalizada
+                        <a href="#orcamento" class="btn-principal largura-total" style="text-align: center;">
+                            Agendar Visita com base na Simulação
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Seção de Solicitação de Orçamento / Visita Técnica -->
+        <section id="orcamento" class="secao">
+            <div class="container">
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">ATENDIMENTO PERSONALIZADO</span>
+                    <h2>Agendar Visita Técnica ou Orçamento</h2>
+                    <p style="color: var(--texto-suave); margin-top: 8px;">Preencha os dados abaixo para enviarmos sua solicitação diretamente para nossa equipe técnica.</p>
+                </div>
+
+                <form id="form-orcamento" class="form-engenharia">
+                    <div class="form-grid">
+                        <!-- Nome Completo -->
+                        <div class="campo-grupo">
+                            <label for="nome-cliente">Nome Completo *</label>
+                            <input type="text" id="nome-cliente" placeholder="Ex: João da Silva" required>
+                        </div>
+
+                        <!-- Tipo de Serviço -->
+                        <div class="campo-grupo">
+                            <label for="tipo-servico">Tipo de Serviço *</label>
+                            <select id="tipo-servico" required>
+                                <option value="" disabled selected>Selecione uma especialidade...</option>
+                                <option value="Energia Solar (Projeto / Instalação)">☀️ Energia Solar (Projeto / Instalação)</option>
+                                <option value="Elétrica Residencial">⚡ Elétrica Residencial</option>
+                                <option value="Elétrica Comercial / Predial">🏢 Elétrica Comercial / Predial</option>
+                                <option value="Automação Residencial / Comercial">📱 Automação Residencial / Comercial</option>
+                                <option value="Controle de Acesso / Fechaduras / Portões">🔐 Controle de Acesso / Fechaduras / Portões</option>
+                                <option value="Iluminação / Projeto Luminotécnico">💡 Iluminação / Projeto Luminotécnico</option>
+                                <option value="Manutenção Preventiva / Corretiva">🛠️ Manutenção Preventiva / Corretiva</option>
+                            </select>
+                        </div>
+
+                        <!-- Endereço / Bairro / Cidade -->
+                        <div class="campo-grupo">
+                            <label for="endereco-cliente">Endereço da Obra / Imóvel *</label>
+                            <input type="text" id="endereco-cliente" placeholder="Rua, Bairro e Cidade (Ex: Laranjeiras, Serra - ES)" required>
+                        </div>
+
+                        <!-- Data Preferencial para Visita -->
+                        <div class="campo-grupo">
+                            <label for="data-visita">Data Preferencial para Visita *</label>
+                            <input type="date" id="data-visita" required>
+                        </div>
+
+                        <!-- Turno Preferencial -->
+                        <div class="campo-grupo">
+                            <label for="turno-visita">Melhor Turno para Atendimento</label>
+                            <select id="turno-visita">
+                                <option value="Manhã (08h às 12h)">Manhã (08h às 12h)</option>
+                                <option value="Tarde (13h às 18h)">Tarde (13h às 18h)</option>
+                                <option value="Horário Flexível">Horário Flexível</option>
+                            </select>
+                        </div>
+
+                        <!-- Tipo de Imóvel -->
+                        <div class="campo-grupo">
+                            <label for="tipo-imovel">Tipo de Imóvel</label>
+                            <select id="tipo-imovel">
+                                <option value="Residencial">Residencial (Casa / Apartamento)</option>
+                                <option value="Comercial">Comercial (Loja / Escritório)</option>
+                                <option value="Industrial / Condomínio">Industrial / Condomínio</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Observações / Detalhes do Projeto -->
+                    <div class="campo-grupo largura-total" style="margin-top: 20px;">
+                        <label for="detalhes-projeto">Detalhes do que você precisa (Opcional)</label>
+                        <textarea id="detalhes-projeto" rows="4" placeholder="Descreva brevemente sua necessidade (ex: valor médio da conta de luz, reforma elétrica, instalação de motor de portão, etc.)"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-principal btn-submit">
+                        Enviar Solicitação pelo WhatsApp ➔
+                    </button>
+                </form>
+            </div>
+        </section>
+
         <!-- Diferenciais -->
-        <section id="diferenciais" class="secao">
+        <section id="diferenciais" class="secao fundo-escuro-alt">
             <div class="container">
                 <div class="grid-diferenciais">
                     <div class="dif-item">
@@ -203,11 +281,11 @@
         <div class="container flex-footer">
             <div>
                 <strong>LS RODRIGUES ENGENHARIA</strong>
-                <p>Energia Solar | Elétrica | Automação Residencial e Comercial[cite: 1]</p>
+                <p>Energia Solar | Elétrica | Automação Residencial e Comercial</p>
             </div>
             <div class="footer-contato">
-                <p>WhatsApp: (27) 99520-7409[cite: 1]</p>
-                <p>Instagram: @lsrodrigueseng[cite: 1]</p>
+                <p>WhatsApp: (27) 99520-7409</p>
+                <p>Instagram: @lsrodrigueseng</p>
             </div>
         </div>
     </footer>
