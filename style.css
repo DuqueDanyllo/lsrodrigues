@@ -1,0 +1,166 @@
+/* 1. Escopo Global (Raiz) */
+:root {
+    --cor-primaria: #12476B;    /* Azul escuro da marca */
+    --cor-destaque: #2cb6b6;    /* Ciano / Verde-água */
+    --cor-fundo: #F8FAFC;       /* Fundo claro neutro */
+    --cor-texto: #1E293B;       /* Texto escuro para leitura */
+    --cor-branco: #FFFFFF;
+    --espacamento-padrao: 16px;
+}
+
+/* 2. Reset Básico (Remove margens padrão do navegador) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Faz a rolagem ser suave ao clicar no menu */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Container centralizador */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. Cabeçalho */
+.cabecalho {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cor-destaque);
+    font-weight: 400;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.menu a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--cor-destaque);
+}
+
+.btn-nav {
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria) !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold !important;
+}
+
+/* 4. Seção Hero (Capa) */
+.hero {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, #09263a 100%);
+    color: var(--cor-branco);
+    padding: 90px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+    color: #CBD5E1;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: transform 0.2s;
+}
+
+.btn-principal:hover {
+    transform: translateY(-2px);
+}
+
+/* 5. Seções e Cards */
+.secao {
+    padding: 70px 0;
+}
+
+.fundo-alternativo {
+    background-color: #E2E8F0;
+}
+
+.titulo-secao {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.grid-servicos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--cor-branco);
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 4px solid var(--cor-destaque);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 12px;
+}
+
+/* 6. Rodapé */
+.rodape {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.95rem;
+}
