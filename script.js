@@ -1,4 +1,4 @@
-// 1. Menu Mobile (Abre e fecha no celular)
+// 1. Menu Mobile
 const btnMobile = document.getElementById('btn-mobile');
 const navMenu = document.getElementById('nav-menu');
 
@@ -6,87 +6,85 @@ btnMobile.addEventListener('click', () => {
     navMenu.classList.toggle('aberto');
 });
 
-// Fecha o menu mobile ao clicar em qualquer link
 document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('aberto');
-    });
+    link.addEventListener('click', () => navMenu.classList.remove('aberto'));
 });
 
-// 2. Sistema de Abas (Tabs) de Especialidades
-const botoesTab = document.querySelectorAll('.tab-btn');
-const paineisTab = document.querySelectorAll('.tab-painel');
-
-botoesTab.forEach(botao => {
-    botao.addEventListener('click', () => {
-        botoesTab.forEach(btn => btn.classList.remove('ativo'));
-        paineisTab.forEach(painel => painel.classList.remove('ativo'));
-
-        botao.classList.add('ativo');
-
-        const alvoId = botao.getAttribute('data-alvo');
-        document.getElementById(alvoId).classList.add('ativo');
-    });
-});
-
-// 3. Simulador de Economia de Energia Solar
+// 2. Simulador de Economia Solar
 const sliderConta = document.getElementById('valor-conta');
 const displayConta = document.getElementById('display-conta');
 const displayMensal = document.getElementById('economia-mensal');
 const displayAnual = document.getElementById('economia-anual');
+const btnExportarSimulacao = document.getElementById('btn-exportar-simulacao');
 
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
-sliderConta.addEventListener('input', () => {
-    const valorAtual = Number(sliderConta.value);
-    
-    const economiaMes = valorAtual * 0.90;
-    const economiaAno = economiaMes * 12;
+function atualizarSimulador() {
+    const valor = Number(sliderConta.value);
+    const econMes = valor * 0.90;
+    const econAno = econMes * 12;
 
-    displayConta.textContent = formatarMoeda(valorAtual);
-    displayMensal.textContent = formatarMoeda(economiaMes);
-    displayAnual.textContent = formatarMoeda(economiaAno);
+    displayConta.textContent = formatarMoeda(valor);
+    displayMensal.textContent = formatarMoeda(econMes);
+    displayAnual.textContent = formatarMoeda(econAno);
+}
+
+sliderConta.addEventListener('input', atualizarSimulador);
+atualizarSimulador();
+
+// 3. Seleção Automática de Serviço ao clicar nos Cards ou Portal
+const selectServico = document.getElementById('tipo-servico');
+const campoDetalhes = document.getElementById('detalhes-projeto');
+
+document.querySelectorAll('[data-servico]').forEach(item => {
+    item.addEventListener('click', () => {
+        const servico = item.getAttribute('data-servico');
+        if (servico) {
+            selectServico.value = servico;
+        }
+    });
 });
 
-// 4. Formulário de Agendamento de Visita e Orçamento
+btnExportarSimulacao.addEventListener('click', () => {
+    selectServico.value = "Energia Solar (Projeto / Instalação)";
+    campoDetalhes.value = `Simulação no site: Conta média de ${displayConta.textContent}/mês (Economia estimada de ${displayMensal.textContent}/mês).`;
+});
+
+// 4. Envio Estruturado para WhatsApp com Protocolo
 const formOrcamento = document.getElementById('form-orcamento');
-const inputDataVisita = document.getElementById('data-visita');
+const inputData = document.getElementById('data-visita');
 
-// Bloqueia datas anteriores a hoje no calendário
 const hoje = new Date().toISOString().split('T')[0];
-inputDataVisita.setAttribute('min', hoje);
+inputData.setAttribute('min', hoje);
 
-formOrcamento.addEventListener('submit', function(evento) {
-    evento.preventDefault();
+formOrcamento.addEventListener('submit', function (e) {
+    e.preventDefault();
 
     const nome = document.getElementById('nome-cliente').value.trim();
-    const servico = document.getElementById('tipo-servico').value;
+    const servico = selectServico.value;
     const endereco = document.getElementById('endereco-cliente').value.trim();
-    const dataBruta = document.getElementById('data-visita').value;
-    const turno = document.getElementById('turno-visita').value;
     const imovel = document.getElementById('tipo-imovel').value;
-    const detalhes = document.getElementById('detalhes-projeto').value.trim();
+    const dataBruta = inputData.value;
+    const turno = document.getElementById('turno-visita').value;
+    const detalhes = campoDetalhes.value.trim();
 
-    // Converte data de YYYY-MM-DD para DD/MM/YYYY
     const [ano, mes, dia] = dataBruta.split('-');
     const dataFormatada = `${dia}/${mes}/${ano}`;
+    const protocolo = `LSR-${ano}-${Math.floor(1000 + Math.random() * 9000)}`;
 
-    // Monta a mensagem para o WhatsApp
-    let textoWhatsApp = `*SOLICITAÇÃO DE ORÇAMENTO / VISITA TÉCNICA*\n\n`;
-    textoWhatsApp += `*Cliente:* ${nome}\n`;
-    textoWhatsApp += `*Serviço:* ${servico}\n`;
-    textoWhatsApp += `*Imóvel:* ${imovel}\n`;
-    textoWhatsApp += `*Endereço:* ${endereco}\n`;
-    textoWhatsApp += `*Data sugerida:* ${dataFormatada} (${turno})\n`;
+    let mensagem = `*SOLICITAÇÃO DE ORÇAMENTO — ${protocolo}*\n\n`;
+    mensagem += `*Cliente:* ${nome}\n`;
+    mensagem += `*Serviço:* ${servico}\n`;
+    mensagem += `*Imóvel:* ${imovel}\n`;
+    mensagem += `*Local:* ${endereco}\n`;
+    mensagem += `*Data Preferencial:* ${dataFormatada} (${turno})\n`;
 
-    if (detalhes !== "") {
-        textoWhatsApp += `*Detalhes:* ${detalhes}\n`;
+    if (detalhes) {
+        mensagem += `*Observações:* ${detalhes}\n`;
     }
 
-    const telefoneEmpresa = "5527995207409";
-    const urlWhatsApp = `https://wa.me/${telefoneEmpresa}?text=${encodeURIComponent(textoWhatsApp)}`;
-
-    window.open(urlWhatsApp, '_blank');
+    const telefone = "5527995207409";
+    window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
 });

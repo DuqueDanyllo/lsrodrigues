@@ -4,297 +4,340 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LS Rodrigues Engenharia | Energia Solar, Elétrica e Automação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Cabeçalho Técnico -->
+    <!-- Cabeçalho Minimalista Branco -->
     <header class="cabecalho">
-        <div class="container flex-header">
-            <a href="#home" class="logo">
-                <div class="logo-icone">LS</div>
-                <div class="logo-texto">
-                    <strong>LS RODRIGUES</strong>
-                    <span>ENGENHARIA & SOLUÇÕES</span>
+        <div class="container flex-between">
+            <a href="#inicio" class="logo">
+                <!-- Caso salve a logo oficial recortada em PNG na pasta, basta descomentar a tag img abaixo -->
+                <!-- <img src="logo.png" alt="LS Rodrigues Engenharia" class="logo-oficial"> -->
+                <div class="logo-emblema">
+                    <span class="cor-petroleo">L</span><span class="cor-turquesa">S</span>
+                </div>
+                <div class="logo-nome">
+                    <strong>RODRIGUES</strong>
+                    <span>ENGENHARIA</span>
                 </div>
             </a>
 
-            <button class="btn-mobile" id="btn-mobile" aria-label="Abrir Menu">☰</button>
+            <button class="btn-mobile" id="btn-mobile" aria-label="Abrir Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
 
             <nav id="nav-menu">
                 <ul class="menu">
-                    <li><a href="#servicos">Especialidades</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
                     <li><a href="#simulador">Simulador Solar</a></li>
-                    <li><a href="#diferenciais">Normas & Garantia</a></li>
-                    <li><a href="#orcamento" class="btn-nav">Solicitar Orçamento</a></li>
+                    <li><a href="#engenharia">Padrão Técnico</a></li>
+                    <li><a href="#orcamento" class="btn-header">Solicitar Orçamento</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section com Identidade de Engenharia -->
-        <section id="home" class="hero">
-            <div class="container grid-hero">
-                <div class="hero-conteudo">
-                    <span class="badge-tecnica">⚡ PROJETOS RESIDENCIAIS & COMERCIAIS</span>
-                    <h1>Engenharia de precisão para <span class="destaque">reduzir custos</span> e automatizar seu imóvel.</h1>
-                    <p>Instalações elétricas dentro das normas técnicas, sistemas fotovoltaicos de alta eficiência e automação inteligente no Espírito Santo.</p>
+        <!-- HERO SECTION: Bloco de Entrada Imersivo (Inspirado na transição escura -> clara) -->
+        <section id="inicio" class="hero-corporativo">
+            <div class="container hero-grid">
+                <div class="hero-texto">
+                    <span class="etiqueta-hero">ENERGIA SOLAR • ELÉTRICA • AUTOMAÇÃO</span>
+                    <h1>Engenharia elétrica de alta precisão para residências e empresas.</h1>
+                    <p>Projetamos e executamos sistemas fotovoltaicos homologados, infraestrutura elétrica normativa e automação inteligente com foco em segurança e eficiência energética.</p>
                     
-                    <div class="hero-acoes">
-                        <a href="#simulador" class="btn-principal">Simular Economia Solar</a>
-                        <a href="#servicos" class="btn-secundario">Ver Especialidades</a>
+                    <div class="hero-botoes">
+                        <a href="#simulador" class="btn-turquesa">Simular Economia Solar</a>
+                        <a href="#solucoes" class="btn-transparente">Explorar Serviços</a>
                     </div>
                 </div>
 
-                <!-- Painel Visual Técnico -->
-                <div class="painel-engenharia">
-                    <div class="painel-topo">
-                        <span class="ponto verde"></span>
-                        <span class="ponto amarelo"></span>
-                        <span class="titulo-painel">STATUS DO SISTEMA // EFICIÊNCIA ENERGÉTICA</span>
+                <!-- Card de Acesso Rápido (Estilo Portal de Serviços de Energia) -->
+                <div class="portal-acesso">
+                    <div class="portal-topo">
+                        <span>ACESSO RÁPIDO // SELECIONE SUA NECESSIDADE</span>
                     </div>
-                    <div class="painel-dados">
-                        <div class="dado-item">
-                            <span class="dado-label">Economia na Fatura</span>
-                            <strong class="dado-valor ciano">Até 95%</strong>
-                        </div>
-                        <div class="dado-item">
-                            <span class="dado-label">Conformidade Técnica</span>
-                            <strong class="dado-valor">NBR 5410 / 16690</strong>
-                        </div>
-                        <div class="dado-item">
-                            <span class="dado-label">Atendimento</span>
-                            <strong class="dado-valor">Grande Vitória & ES</strong>
-                        </div>
-                        <div class="dado-item">
-                            <span class="dado-label">Homologação</span>
-                            <strong class="dado-valor dourado">100% Inclusa</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção de Serviços com Abas Interativas (Tabs) -->
-        <section id="servicos" class="secao">
-            <div class="container">
-                <div class="cabecalho-secao">
-                    <span class="subtitulo-secao">O QUE FAZEMOS</span>
-                    <h2>Soluções Completas em Engenharia</h2>
-                </div>
-
-                <!-- Botões das Abas -->
-                <div class="tabs-controle">
-                    <button class="tab-btn ativo" data-alvo="solar">☀️ Energia Solar</button>
-                    <button class="tab-btn" data-alvo="eletrica">⚡ Elétrica Predial & Comercial</button>
-                    <button class="tab-btn" data-alvo="automacao">📱 Automação & Acesso</button>
-                </div>
-
-                <!-- Conteúdo Dinâmico das Abas -->
-                <div class="tabs-conteudo">
-                    <!-- Aba 1: Solar -->
-                    <div class="tab-painel ativo" id="solar">
-                        <div class="painel-info">
-                            <h3>Sistemas Fotovoltaicos On-Grid e Off-Grid</h3>
-                            <p>Dimensionamento personalizado para residências, comércios e empresas gerarem a própria energia limpa com retorno rápido do investimento.</p>
-                            <ul class="lista-tecnica">
-                                <li>✓ Projeto de engenharia e homologação junto à concessionária (EDP)</li>
-                                <li>✓ Instalação de painéis solares e inversores de alta performance</li>
-                                <li>✓ Manutenção preventiva, limpeza técnica e monitoramento por aplicativo</li>
-                            </ul>
-                            <a href="#orcamento" class="btn-principal">Orçar Energia Solar</a>
-                        </div>
-                    </div>
-
-                    <!-- Aba 2: Elétrica -->
-                    <div class="tab-painel" id="eletrica">
-                        <div class="painel-info">
-                            <h3>Instalações Elétricas de Baixa e Média Tensão</h3>
-                            <p>Execução rigorosa seguindo a norma NBR 5410 para eliminar riscos de curto-circuito, sobrecarga e desperdício de energia.</p>
-                            <ul class="lista-tecnica">
-                                <li>✓ Montagem e organização de Quadros de Distribuição (QDC)</li>
-                                <li>✓ Padrão de entrada, aterramento e proteção contra surtos (DPS)</li>
-                                <li>✓ Projetos luminotécnicos internos e externos</li>
-                                <li>✓ Reformas elétricas completas</li>
-                            </ul>
-                            <a href="#orcamento" class="btn-principal">Orçar Serviço Elétrico</a>
-                        </div>
-                    </div>
-
-                    <!-- Aba 3: Automação -->
-                    <div class="tab-painel" id="automacao">
-                        <div class="painel-info">
-                            <h3>Automação Residencial, Comercial e Controle de Acesso</h3>
-                            <p>Controle iluminação, climatização, portões e segurança diretamente pelo smartphone ou comandos de voz.</p>
-                            <ul class="lista-tecnica">
-                                <li>✓ Automação de iluminação, cortinas e cenários inteligentes</li>
-                                <li>✓ Instalação de fechaduras digitais, biometria e interfones</li>
-                                <li>✓ Automatização de portões eletrônicos residenciais e industriais</li>
-                                <li>✓ Integração de sistemas de segurança e monitoramento remoto</li>
-                            </ul>
-                            <a href="#orcamento" class="btn-principal">Orçar Automação</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Interativa: Simulador de Economia Solar -->
-        <section id="simulador" class="secao fundo-escuro-alt">
-            <div class="container">
-                <div class="simulador-box">
-                    <div class="simulador-texto">
-                        <span class="subtitulo-secao">CALCULADORA RÁPIDA</span>
-                        <h2>Quanto você pode economizar com Energia Solar?</h2>
-                        <p>Arraste a barra abaixo para informar o valor médio da sua conta de luz mensal:</p>
-                        
-                        <div class="controle-slider">
-                            <label for="valor-conta">Sua conta atual: <strong id="display-conta">R$ 500</strong>/mês</label>
-                            <input type="range" id="valor-conta" min="200" max="5000" step="50" value="500">
-                            <div class="slider-limites">
-                                <span>R$ 200</span>
-                                <span>R$ 5.000+</span>
+                    <div class="portal-opcoes">
+                        <a href="#orcamento" class="portal-item" data-servico="Energia Solar (Projeto / Instalação)">
+                            <div class="portal-icone">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
                             </div>
-                        </div>
-                    </div>
+                            <div class="portal-desc">
+                                <strong>Energia Solar Fotovoltaica</strong>
+                                <span>Redução de até 95% na fatura com homologação EDP</span>
+                            </div>
+                            <span class="seta">→</span>
+                        </a>
 
-                    <div class="simulador-resultado">
-                        <div class="res-card">
-                            <span>Economia Mensal Estimada</span>
-                            <strong id="economia-mensal" class="ciano">R$ 450,00</strong>
-                        </div>
-                        <div class="res-card">
-                            <span>Economia em 1 Ano</span>
-                            <strong id="economia-anual" class="dourado">R$ 5.400,00</strong>
-                        </div>
-                        <a href="#orcamento" class="btn-principal largura-total" style="text-align: center;">
-                            Agendar Visita com base na Simulação
+                        <a href="#orcamento" class="portal-item" data-servico="Elétrica Comercial / Predial">
+                            <div class="portal-icone">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            </div>
+                            <div class="portal-desc">
+                                <strong>Instalações Elétricas & QDC</strong>
+                                <span>Projetos, reformas, padrão de entrada e laudos NBR 5410</span>
+                            </div>
+                            <span class="seta">→</span>
+                        </a>
+
+                        <a href="#orcamento" class="portal-item" data-servico="Automação Residencial / Comercial">
+                            <div class="portal-icone">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                            </div>
+                            <div class="portal-desc">
+                                <strong>Automação & Controle de Acesso</strong>
+                                <span>Iluminação inteligente, fechaduras digitais e portões</span>
+                            </div>
+                            <span class="seta">→</span>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Solicitação de Orçamento / Visita Técnica -->
-        <section id="orcamento" class="secao">
+        <!-- TRANSIÇÃO PARA AMBIENTE CLEAN / MINIMALISTA (FUNDO BRANCO) -->
+        <section id="solucoes" class="secao-clara">
             <div class="container">
-                <div class="cabecalho-secao">
-                    <span class="subtitulo-secao">ATENDIMENTO PERSONALIZADO</span>
-                    <h2>Agendar Visita Técnica ou Orçamento</h2>
-                    <p style="color: var(--texto-suave); margin-top: 8px;">Preencha os dados abaixo para enviarmos sua solicitação diretamente para nossa equipe técnica.</p>
+                <div class="cabecalho-minimalista">
+                    <span class="tag-secao">ESPECIALIDADES</span>
+                    <h2>Soluções completas em engenharia elétrica</h2>
+                    <p>Atuação técnica rigorosa do dimensionamento em planta até a entrega final da instalação.</p>
                 </div>
 
-                <form id="form-orcamento" class="form-engenharia">
-                    <div class="form-grid">
-                        <!-- Nome Completo -->
-                        <div class="campo-grupo">
-                            <label for="nome-cliente">Nome Completo *</label>
-                            <input type="text" id="nome-cliente" placeholder="Ex: João da Silva" required>
+                <div class="grid-servicos">
+                    <!-- Serviço 1 -->
+                    <div class="card-clean">
+                        <div class="card-header-clean">
+                            <div class="icone-clean">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                            </div>
+                            <span class="indice-clean">01</span>
                         </div>
-
-                        <!-- Tipo de Serviço -->
-                        <div class="campo-grupo">
-                            <label for="tipo-servico">Tipo de Serviço *</label>
-                            <select id="tipo-servico" required>
-                                <option value="" disabled selected>Selecione uma especialidade...</option>
-                                <option value="Energia Solar (Projeto / Instalação)">☀️ Energia Solar (Projeto / Instalação)</option>
-                                <option value="Elétrica Residencial">⚡ Elétrica Residencial</option>
-                                <option value="Elétrica Comercial / Predial">🏢 Elétrica Comercial / Predial</option>
-                                <option value="Automação Residencial / Comercial">📱 Automação Residencial / Comercial</option>
-                                <option value="Controle de Acesso / Fechaduras / Portões">🔐 Controle de Acesso / Fechaduras / Portões</option>
-                                <option value="Iluminação / Projeto Luminotécnico">💡 Iluminação / Projeto Luminotécnico</option>
-                                <option value="Manutenção Preventiva / Corretiva">🛠️ Manutenção Preventiva / Corretiva</option>
-                            </select>
-                        </div>
-
-                        <!-- Endereço / Bairro / Cidade -->
-                        <div class="campo-grupo">
-                            <label for="endereco-cliente">Endereço da Obra / Imóvel *</label>
-                            <input type="text" id="endereco-cliente" placeholder="Rua, Bairro e Cidade (Ex: Laranjeiras, Serra - ES)" required>
-                        </div>
-
-                        <!-- Data Preferencial para Visita -->
-                        <div class="campo-grupo">
-                            <label for="data-visita">Data Preferencial para Visita *</label>
-                            <input type="date" id="data-visita" required>
-                        </div>
-
-                        <!-- Turno Preferencial -->
-                        <div class="campo-grupo">
-                            <label for="turno-visita">Melhor Turno para Atendimento</label>
-                            <select id="turno-visita">
-                                <option value="Manhã (08h às 12h)">Manhã (08h às 12h)</option>
-                                <option value="Tarde (13h às 18h)">Tarde (13h às 18h)</option>
-                                <option value="Horário Flexível">Horário Flexível</option>
-                            </select>
-                        </div>
-
-                        <!-- Tipo de Imóvel -->
-                        <div class="campo-grupo">
-                            <label for="tipo-imovel">Tipo de Imóvel</label>
-                            <select id="tipo-imovel">
-                                <option value="Residencial">Residencial (Casa / Apartamento)</option>
-                                <option value="Comercial">Comercial (Loja / Escritório)</option>
-                                <option value="Industrial / Condomínio">Industrial / Condomínio</option>
-                            </select>
-                        </div>
+                        <h3>Sistemas Fotovoltaicos</h3>
+                        <p>Projetos On-Grid e Off-Grid dimensionados sob medida para residências, comércios e propriedades rurais.</p>
+                        <ul class="lista-clean">
+                            <li>Projeto elétrico, ART e homologação junto à EDP</li>
+                            <li>Instalação de módulos e inversores certificados</li>
+                            <li>Manutenção preventiva e limpeza técnica</li>
+                        </ul>
+                        <a href="#orcamento" class="link-clean" data-servico="Energia Solar (Projeto / Instalação)">Solicitar proposta solar <span>→</span></a>
                     </div>
 
-                    <!-- Observações / Detalhes do Projeto -->
-                    <div class="campo-grupo largura-total" style="margin-top: 20px;">
-                        <label for="detalhes-projeto">Detalhes do que você precisa (Opcional)</label>
-                        <textarea id="detalhes-projeto" rows="4" placeholder="Descreva brevemente sua necessidade (ex: valor médio da conta de luz, reforma elétrica, instalação de motor de portão, etc.)"></textarea>
+                    <!-- Serviço 2 -->
+                    <div class="card-clean">
+                        <div class="card-header-clean">
+                            <div class="icone-clean">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 3v6M15 3v6M9 15v6M15 15v6"/></svg>
+                            </div>
+                            <span class="indice-clean">02</span>
+                        </div>
+                        <h3>Elétrica Predial e Comercial</h3>
+                        <p>Infraestrutura elétrica segura e organizada, eliminando sobrecargas, quedas de tensão e desperdícios.</p>
+                        <ul class="lista-clean">
+                            <li>Montagem e balanceamento de Quadros (QDC)</li>
+                            <li>Aterramento, proteção contra surtos (DPS) e IDR</li>
+                            <li>Projetos luminotécnicos e reformas elétricas</li>
+                        </ul>
+                        <a href="#orcamento" class="link-clean" data-servico="Elétrica Comercial / Predial">Orçar serviço elétrico <span>→</span></a>
                     </div>
 
-                    <button type="submit" class="btn-principal btn-submit">
-                        Enviar Solicitação pelo WhatsApp ➔
-                    </button>
-                </form>
+                    <!-- Serviço 3 -->
+                    <div class="card-clean">
+                        <div class="card-header-clean">
+                            <div class="icone-clean">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <span class="indice-clean">03</span>
+                        </div>
+                        <h3>Automação e Acesso</h3>
+                        <p>Tecnologia aplicada ao conforto e segurança patrimonial com controle total via smartphone.</p>
+                        <ul class="lista-clean">
+                            <li>Automação de iluminação, cortinas e climatização</li>
+                            <li>Fechaduras digitais, biometria e interfonia</li>
+                            <li>Automatização de portões residenciais e industriais</li>
+                        </ul>
+                        <a href="#orcamento" class="link-clean" data-servico="Automação Residencial / Comercial">Orçar automação <span>→</span></a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Diferenciais -->
-        <section id="diferenciais" class="secao fundo-escuro-alt">
+        <!-- SIMULADOR DE ECONOMIA SOLAR (Minimalista em Cinza Gelo) -->
+        <section id="simulador" class="secao-gelo">
             <div class="container">
-                <div class="grid-diferenciais">
-                    <div class="dif-item">
-                        <div class="dif-num">01</div>
-                        <h3>Segurança Normativa</h3>
-                        <p>Todos os projetos seguem rigorosamente as normas da ABNT e exigências da concessionária.</p>
+                <div class="simulador-clean">
+                    <div class="simulador-controles">
+                        <span class="tag-secao">SIMULADOR DE VIABILIDADE</span>
+                        <h2>Estime sua economia com Energia Solar</h2>
+                        <p>Arraste o controle abaixo para indicar o valor médio mensal da sua conta de luz:</p>
+
+                        <div class="caixa-slider">
+                            <div class="slider-topo">
+                                <span>Valor atual da fatura</span>
+                                <strong id="display-conta">R$ 600,00</strong>
+                            </div>
+                            <input type="range" id="valor-conta" min="250" max="6000" step="50" value="600">
+                            <div class="slider-legendas">
+                                <span>R$ 250</span>
+                                <span>R$ 3.000</span>
+                                <span>R$ 6.000+</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="dif-item">
-                        <div class="dif-num">02</div>
-                        <h3>Equipamentos Certificados</h3>
-                        <p>Trabalhamos apenas com inversores, módulos e componentes homologados pelo INMETRO.</p>
+
+                    <div class="simulador-resultados">
+                        <div class="resultado-linha">
+                            <span>Economia mensal estimada</span>
+                            <strong id="economia-mensal" class="destaque-turquesa">R$ 540,00</strong>
+                        </div>
+                        <div class="divisor-horizontal"></div>
+                        <div class="resultado-linha">
+                            <span>Economia acumulada em 1 ano</span>
+                            <strong id="economia-anual" class="destaque-petroleo">R$ 6.480,00</strong>
+                        </div>
+                        <p class="aviso-calculo">*Estimativa baseada em redução média de 90% considerando o custo de disponibilidade da rede.</p>
+                        <a href="#orcamento" class="btn-petroleo-full" id="btn-exportar-simulacao">
+                            Agendar visita com esta simulação
+                        </a>
                     </div>
-                    <div class="dif-item">
-                        <div class="dif-num">03</div>
-                        <h3>Atendimento Direto</h3>
-                        <p>Acompanhamento técnico do projeto até a entrega final da obra, sem intermediários.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS TÉCNICOS -->
+        <section id="engenharia" class="secao-clara borda-inferior">
+            <div class="container">
+                <div class="grid-diferenciais-clean">
+                    <div class="dif-clean">
+                        <span class="num-clean">01</span>
+                        <h4>Segurança Normativa</h4>
+                        <p>Execução pautada pelas normas ABNT NBR 5410 e NBR 16690, garantindo proteção contra choques e sobrecargas.</p>
                     </div>
+                    <div class="dif-clean">
+                        <span class="num-clean">02</span>
+                        <h4>Equipamentos Homologados</h4>
+                        <p>Utilizamos exclusivamente inversores, módulos e dispositivos certificados pelo INMETRO com garantia de fábrica.</p>
+                    </div>
+                    <div class="dif-clean">
+                        <span class="num-clean">03</span>
+                        <h4>Acompanhamento Direto</h4>
+                        <p>Atendimento técnico transparente desde o levantamento de cargas até a vistoria final e entrega da obra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO DE ORÇAMENTO CLEAN -->
+        <section id="orcamento" class="secao-clara">
+            <div class="container">
+                <div class="layout-contato">
+                    <div class="contato-info">
+                        <span class="tag-secao">ATENDIMENTO TÉCNICO</span>
+                        <h2>Solicite um orçamento ou visita técnica</h2>
+                        <p>Preencha as informações básicas do seu imóvel. Nossa equipe receberá sua solicitação estruturada diretamente via WhatsApp.</p>
+                        
+                        <div class="canais-diretos">
+                            <div class="canal-item">
+                                <span>WhatsApp Comercial & Técnico</span>
+                                <strong>(27) 99520-7409</strong>
+                            </div>
+                            <div class="canal-item">
+                                <span>Instagram</span>
+                                <strong>@lsrodrigueseng</strong>
+                            </div>
+                            <div class="canal-item">
+                                <span>Área de Atendimento</span>
+                                <strong>Serra, Vitória, Vila Velha, Cariacica e ES</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="form-orcamento" class="form-clean">
+                        <div class="linha-form">
+                            <div class="campo-clean">
+                                <label for="nome-cliente">Nome Completo ou Empresa *</label>
+                                <input type="text" id="nome-cliente" placeholder="Ex: Carlos Eduardo" required>
+                            </div>
+                            <div class="campo-clean">
+                                <label for="tipo-servico">Especialidade Desejada *</label>
+                                <select id="tipo-servico" required>
+                                    <option value="" disabled selected>Selecione o serviço...</option>
+                                    <option value="Energia Solar (Projeto / Instalação)">Energia Solar (Projeto / Instalação)</option>
+                                    <option value="Elétrica Residencial">Elétrica Residencial</option>
+                                    <option value="Elétrica Comercial / Predial">Elétrica Comercial / Predial</option>
+                                    <option value="Automação Residencial / Comercial">Automação Residencial / Comercial</option>
+                                    <option value="Controle de Acesso / Fechaduras / Portões">Controle de Acesso / Fechaduras / Portões</option>
+                                    <option value="Manutenção Preventiva / Corretiva">Manutenção Preventiva / Corretiva</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="linha-form">
+                            <div class="campo-clean">
+                                <label for="endereco-cliente">Bairro e Cidade *</label>
+                                <input type="text" id="endereco-cliente" placeholder="Ex: Jardim Limoeiro, Serra - ES" required>
+                            </div>
+                            <div class="campo-clean">
+                                <label for="tipo-imovel">Tipo de Imóvel</label>
+                                <select id="tipo-imovel">
+                                    <option value="Residencial">Residencial</option>
+                                    <option value="Comercial">Comercial</option>
+                                    <option value="Condomínio / Predial">Condomínio / Predial</option>
+                                    <option value="Industrial">Industrial</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="linha-form">
+                            <div class="campo-clean">
+                                <label for="data-visita">Data Preferencial para Visita *</label>
+                                <input type="date" id="data-visita" required>
+                            </div>
+                            <div class="campo-clean">
+                                <label for="turno-visita">Turno Preferencial</label>
+                                <select id="turno-visita">
+                                    <option value="Manhã (08h às 12h)">Manhã (08h às 12h)</option>
+                                    <option value="Tarde (13h às 18h)">Tarde (13h às 18h)</option>
+                                    <option value="Horário Flexível">Horário Flexível</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="campo-clean">
+                            <label for="detalhes-projeto">Detalhes do Projeto (Opcional)</label>
+                            <textarea id="detalhes-projeto" rows="3" placeholder="Descreva brevemente sua necessidade ou valor médio da conta de energia..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-turquesa-full">
+                            Enviar Solicitação pelo WhatsApp
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="rodape">
-        <div class="container flex-footer">
+    <!-- Rodapé Minimalista -->
+    <footer class="rodape-clean">
+        <div class="container flex-between">
             <div>
                 <strong>LS RODRIGUES ENGENHARIA</strong>
-                <p>Energia Solar | Elétrica | Automação Residencial e Comercial</p>
+                <span>Energia Solar • Instalações Elétricas • Automação</span>
             </div>
-            <div class="footer-contato">
-                <p>WhatsApp: (27) 99520-7409</p>
-                <p>Instagram: @lsrodrigueseng</p>
+            <div class="rodape-dir">
+                <span>Espírito Santo — Brasil</span>
             </div>
         </div>
     </footer>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5527995207409" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
-        💬 Orçamento
+    <!-- Botão Flutuante Minimalista -->
+    <a href="https://wa.me/5527995207409" target="_blank" class="whatsapp-clean" aria-label="Falar no WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Falar com Engenheiro</span>
     </a>
 
     <script src="script.js"></script>
