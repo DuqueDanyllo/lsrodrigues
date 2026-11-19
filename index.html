@@ -11,30 +11,11 @@
 </head>
 <body>
 
-    <!-- Barra Institucional Superior -->
-    <div class="barra-institucional">
-        <div class="container flex-between">
-            <div class="regiao-indicador">
-                <span class="ponto-ativo"></span>
-                <span>Atendimento Técnico: <strong>Espírito Santo (Grande Vitória & Interior)</strong></span>
-            </div>
-            <div class="normas-topo">
-                <span>Conformidade: ABNT NBR 5410 • NBR 16690 • NR-10 • NR-35</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Cabeçalho Minimalista Branco -->
     <header class="cabecalho">
         <div class="container flex-between">
-            <a href="#inicio" class="logo">
-                <div class="logo-emblema">
-                    <span class="cor-petroleo">L</span><span class="cor-turquesa">S</span>
-                </div>
-                <div class="logo-nome">
-                    <strong>RODRIGUES</strong>
-                    <span>ENGENHARIA</span>
-                </div>
+            <a href="#inicio" class="logo" aria-label="LS Rodrigues Engenharia - Início">
+                <img src="img/logo/logo-lsrodrigues.png" alt="LS Rodrigues Engenharia" class="logo-img">
             </a>
 
             <button class="btn-mobile" id="btn-mobile" aria-label="Abrir Menu">
@@ -45,8 +26,8 @@
                 <ul class="menu">
                     <li><a href="#solucoes">Soluções</a></li>
                     <li><a href="#projetos">Obras & Projetos</a></li>
-                    <li><a href="#simulador">Simulador Solar</a></li>
                     <li><a href="#tecnico">O Técnico</a></li>
+                    <li><a href="#simulador">Simulador Solar</a></li>
                     <li><a href="#orcamento" class="btn-header">Solicitar Orçamento</a></li>
                 </ul>
             </nav>
@@ -111,7 +92,7 @@
             </div>
         </section>
 
-        <!-- BLOCO 2: SOLUÇÕES (Fundo Claro com Cards Escuros de Alto Contraste) -->
+        <!-- BLOCO 2: SOLUÇÕES (Fundo Claro) -->
         <section id="solucoes" class="secao-clara">
             <div class="container">
                 <div class="cabecalho-minimalista">
@@ -121,7 +102,6 @@
                 </div>
 
                 <div class="grid-servicos">
-                    <!-- Serviço 1 -->
                     <div class="card-clean">
                         <div class="card-header-clean">
                             <div class="icone-clean">
@@ -139,7 +119,6 @@
                         <a href="#orcamento" class="link-clean" data-servico="Energia Solar (Projeto / Instalação)">Solicitar proposta solar <span>→</span></a>
                     </div>
 
-                    <!-- Serviço 2 -->
                     <div class="card-clean">
                         <div class="card-header-clean">
                             <div class="icone-clean">
@@ -157,7 +136,6 @@
                         <a href="#orcamento" class="link-clean" data-servico="Elétrica Comercial / Predial">Orçar serviço elétrico <span>→</span></a>
                     </div>
 
-                    <!-- Serviço 3 -->
                     <div class="card-clean">
                         <div class="card-header-clean">
                             <div class="icone-clean">
@@ -178,108 +156,436 @@
             </div>
         </section>
 
-        <!-- BLOCO 3: GALERIA DE SERVIÇOS POR ÁREA (Fundo Cinza Gelo Suave) -->
-        <section id="projetos" class="secao-galeria">
+        <!-- BLOCO 3: OBRAS E PROJETOS COM CARROSSEL POR ÁREA (Fundo Cinza Gelo) -->
+        <section id="projetos" class="secao-galeria-escura">
             <div class="container">
                 <div class="galeria-topo">
-                    <div class="cabecalho-minimalista" style="margin-bottom: 0;">
-                        <span class="tag-secao">PORTFÓLIO DE EXECUÇÃO</span>
-                        <h2>Obras e serviços realizados</h2>
-                        <p>Registros reais de instalações executadas com acabamento técnico e rigor normativo.</p>
+                    <div class="cabecalho-minimalista cabecalho-escuro" style="margin-bottom: 0;">
+                        <span class="tag-secao">OBRAS & PROJETOS</span>
+                        <h2>Projetos e serviços executados</h2>
+                        <p>Navegue pelo carrossel de imagens e vídeos de cada área de atuação.</p>
                     </div>
 
-                    <!-- Filtros por Área -->
-                    <div class="filtros-galeria">
-                        <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
-                        <button class="filtro-btn" data-filtro="solar">Energia Solar</button>
-                        <button class="filtro-btn" data-filtro="eletrica">Elétrica Residencial & Predial</button>
-                        <button class="filtro-btn" data-filtro="automacao">Automações</button>
+                    <!-- Abas sem opção "Todos" -->
+                    <div class="filtros-galeria" role="tablist" aria-label="Áreas de projetos">
+                        <button type="button" class="filtro-btn ativo" data-area="solar">Energia Solar</button>
+                        <button type="button" class="filtro-btn" data-area="eletrica">Elétrica Residencial & Predial</button>
+                        <button type="button" class="filtro-btn" data-area="automacao">Automações</button>
                     </div>
                 </div>
 
-                <!-- Grid de Fotos (Substitua os links src pelas fotos reais do cliente) -->
-                <div class="grid-portfolio">
-                    <!-- Item 1: Solar -->
-                    <div class="card-foto" data-categoria="solar">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Usina Solar Residencial">
-                            <span class="badge-area">Energia Solar</span>
+                <!-- CARROSSEL 1: ENERGIA SOLAR (11 imagens + 2 vídeos) -->
+                <div class="carrossel-painel ativo" id="carrossel-solar" data-area="solar">
+                    <div class="carrossel-topo">
+                        <span class="carrossel-contador" id="contador-solar">Item 1 de 13</span>
+                        <span class="carrossel-legenda">Energia Solar • 11 imagens e 2 vídeos</span>
+                    </div>
+
+                    <div class="carrossel-palco">
+                        <button type="button" class="carrossel-seta prev" data-target="solar" aria-label="Slide anterior">‹</button>
+
+                        <div class="carrossel-track" id="track-solar">
+                            <!-- 11 Imagens -->
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 01/11</span>
+                                    <img src="img/energia solar/img1.jpeg" alt="Sistema Fotovoltaico 01">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 01</h4>
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 02/11</span>
+                                    <img src="img/energia solar/img2.jpeg" alt="Sistema Fotovoltaico 02">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 02</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 03/11</span>
+                                    <img src="img/energia solar/img3.jpeg" alt="Sistema Fotovoltaico 03">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 03</h4>
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 04/11</span>
+                                    <img src="img/energia solar/img4.jpeg" alt="Sistema Fotovoltaico 04">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 04</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 05/11</span>
+                                    <img src="img/energia solar/img5.jpeg" alt="Sistema Fotovoltaico 05">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 05</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 06/11</span>
+                                    <img src="img/energia solar/img6.jpeg" alt="Sistema Fotovoltaico 06">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 06</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 07/11</span>
+                                    <img src="img/energia solar/img7.jpeg" alt="Sistema Fotovoltaico 07">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 07</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 08/11</span>
+                                    <img src="img/energia solar/img8.jpg" alt="Sistema Fotovoltaico 08">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 08</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 09/11</span>
+                                    <img src="img/energia solar/img9.jpg" alt="Sistema Fotovoltaico 09">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 09</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 10/11</span>
+                                    <img src="img/energia solar/img10.jpg" alt="Sistema Fotovoltaico 10">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 10</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 11/11</span>
+                                    <img src="img/energia solar/img11.jpg" alt="Sistema Fotovoltaico 11">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Sistema Fotovoltaico — Registro 11</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <!-- 2 Vídeos -->
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia video">Vídeo 01/02</span>
+                                    <video controls preload="metadata">
+                                        <source src="img/energia solar/vd1.mp4" type="video/mp4">
+                                        Seu navegador não suporta reprodução de vídeo.
+                                    </video>
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Vídeo de Obra Solar — 01</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia video">Vídeo 02/02</span>
+                                    <video controls preload="metadata">
+                                        <source src="img/energia solar/vd2.mp4" type="video/mp4">
+                                        Seu navegador não suporta reprodução de vídeo.
+                                    </video>
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Vídeo de Obra Solar — 02</h4>
+                                    
+                                </div>
+                            </div>
                         </div>
-                        <div class="foto-info">
-                            <h4>Sistema Fotovoltaico Residencial</h4>
-                            <p>Instalação de módulos monocristalinos, inversor string e homologação EDP.</p>
+
+                        <button type="button" class="carrossel-seta next" data-target="solar" aria-label="Próximo slide">›</button>
+                    </div>
+
+                    <div class="carrossel-dots" id="dots-solar"></div>
+                </div>
+
+                <!-- CARROSSEL 2: ELÉTRICA RESIDENCIAL & PREDIAL (5 imagens) -->
+                <div class="carrossel-painel" id="carrossel-eletrica" data-area="eletrica">
+                    <div class="carrossel-topo">
+                        <span class="carrossel-contador" id="contador-eletrica">Item 1 de 5</span>
+                        <span class="carrossel-legenda">Elétrica Residencial & Predial • 5 imagens</span>
+                    </div>
+
+                    <div class="carrossel-palco">
+                        <button type="button" class="carrossel-seta prev" data-target="eletrica" aria-label="Slide anterior">‹</button>
+
+                        <div class="carrossel-track" id="track-eletrica">
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 01/05</span>
+                                    <img src="img/eletrica/img1.jpeg" alt="Instalação Elétrica 01">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Elétrica Residencial & Predial — Registro 01</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 02/05</span>
+                                    <img src="img/eletrica/img2.jpeg" alt="Instalação Elétrica 02">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Elétrica Residencial & Predial — Registro 02</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 03/05</span>
+                                    <img src="img/eletrica/img3.jpeg" alt="Instalação Elétrica 03">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Elétrica Residencial & Predial — Registro 03</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 04/05</span>
+                                    <img src="img/eletrica/img4.jpeg" alt="Instalação Elétrica 04">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Elétrica Residencial & Predial — Registro 04</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 05/05</span>
+                                    <img src="img/eletrica/img5.jpeg" alt="Instalação Elétrica 05">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Elétrica Residencial & Predial — Registro 05</h4>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="carrossel-seta next" data-target="eletrica" aria-label="Próximo slide">›</button>
+                    </div>
+
+                    <div class="carrossel-dots" id="dots-eletrica"></div>
+                </div>
+
+                <!-- CARROSSEL 3: AUTOMAÇÕES (5 imagens + 1 vídeo, espaço reservado) -->
+        
+                <div class="carrossel-painel" id="carrossel-automacao" data-area="automacao">
+                    <div class="carrossel-topo">
+                        <span class="carrossel-contador" id="contador-automacao">Item 1 de 6</span>
+                        <span class="carrossel-legenda">Automações • 5 imagens e 1 vídeo (pronto para inserir caminhos)</span>
+                    </div>
+
+                    <div class="carrossel-palco">
+                        <button type="button" class="carrossel-seta prev" data-target="automacao" aria-label="Slide anterior">‹</button>
+
+                        <div class="carrossel-track" id="track-automacao">
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 01/05</span>
+                                    <img src="img/automacao/foto-01.jpg" alt="Automação 01">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Imagem 01</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 02/05</span>
+                                    <img src="img/automacao/foto-02.jpg" alt="Automação 02">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Imagem 02</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 03/05</span>
+                                    <img src="img/automacao/foto-03.jpg" alt="Automação 03">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Imagem 03</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 04/05</span>
+                                    <img src="img/automacao/foto-04.jpg" alt="Automação 04">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Imagem 04</h4>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia">Imagem 05/05</span>
+                                    <img src="img/automacao/foto-05.jpg" alt="Automação 05">
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Imagem 05</h4>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="carrossel-slide">
+                                <div class="midia-box">
+                                    <span class="badge-midia video">Vídeo 01/01</span>
+                                    <video controls preload="metadata">
+                                        <source src="videos/automacao/video-01.mp4" type="video/mp4">
+                                        Seu navegador não suporta reprodução de vídeo.
+                                    </video>
+                                </div>
+                                <div class="slide-info">
+                                    <h4>Automação — Espaço de Vídeo 01</h4>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="carrossel-seta next" data-target="automacao" aria-label="Próximo slide">›</button>
+                    </div>
+
+                    <div class="carrossel-dots" id="dots-automacao"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCO 4: SOBRE O TÉCNICO E FORMAÇÕES (Fundo Branco, 2 Fotos + Texto em Terceira Pessoa) -->
+        <section id="tecnico" class="secao-clara borda-inferior">
+            <div class="container">
+                <div class="perfil-tecnico-grid">
+                    <!-- Coluna com 2 Fotos do Responsável Técnico -->
+                    <div class="perfil-fotos-duplas">
+                        <div class="foto-card-tecnico">
+                            <img src="img/lucas/lucas1.jpeg" alt="Lucas Rodrigues em atuação profissional" class="foto-tecnico">
+                            <div class="legenda-foto-tecnico">
+                                <span>ATUAÇÃO PROFISSIONAL</span>
+                                <strong>Direção técnica e execução de campo</strong>
+                            </div>
+                        </div>
+
+                        <div class="foto-card-tecnico">
+                            <img src="img/lucas/lucas2.jpeg" alt="Lucas Rodrigues na formatura em Engenharia de Produção" class="foto-tecnico">
+                            <div class="legenda-foto-tecnico">
+                                <span>FORMATURA • ENGENHARIA DE PRODUÇÃO</span>
+                                <strong>Gestão de processos, qualidade e eficiência</strong>
+                            </div>
+                        </div>
+
+                        <div class="cracha-registro">
+                            <span class="cracha-label">FUNDADOR & RESPONSÁVEL TÉCNICO</span>
+                            <strong>Lucas Rodrigues</strong>
+                            <span>Engenharia de Produção • Técnico em Eletrotécnica • Técnico em Automação</span>
                         </div>
                     </div>
 
-                    <!-- Item 2: Elétrica -->
-                    <div class="card-foto" data-categoria="eletrica">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Quadro de Distribuição Elétrica">
-                            <span class="badge-area">Elétrica Residencial & Predial</span>
-                        </div>
-                        <div class="foto-info">
-                            <h4>Montagem de Quadro de Distribuição (QDC)</h4>
-                            <p>Barramento pente, dispositivos DPS/IDR e identificação anilhada padrão NBR 5410.</p>
-                        </div>
-                    </div>
+                    <!-- Coluna de Biografia Institucional em Terceira Pessoa e Formações -->
+                    <div class="perfil-conteudo">
+                        <span class="tag-secao">O TÉCNICO & FORMAÇÕES</span>
+                        <h2>Lucas Rodrigues: base técnica multidisciplinar e visão de processo</h2>
+                        <p class="perfil-bio">
+                            À frente da <strong>LS Rodrigues Engenharia</strong>, Lucas Rodrigues reúne formação em <strong>Engenharia de Produção</strong>, <strong>Técnico em Eletrotécnica</strong> e <strong>Técnico em Automação</strong>. Essa combinação permite unir o rigor da execução elétrica e dos sistemas automatizados à organização, ao planejamento e à eficiência operacional exigidos em cada projeto residencial, comercial ou predial.
+                        </p>
+                        <p class="perfil-bio">
+                            Em cada entrega, ele acompanha de perto o dimensionamento técnico, a conformidade com as normas vigentes e o acabamento das instalações, garantindo soluções seguras, confiáveis e bem documentadas do início ao fim da obra.
+                        </p>
 
-                    <!-- Item 3: Automação -->
-                    <div class="card-foto" data-categoria="automacao">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Automação Residencial e Acesso">
-                            <span class="badge-area">Automações</span>
-                        </div>
-                        <div class="foto-info">
-                            <h4>Automação de Iluminação & Acesso</h4>
-                            <p>Integração de interruptores inteligentes, cenas luminotécnicas e fechadura biométrica.</p>
-                        </div>
-                    </div>
+                        <div class="formacoes-lista">
+                            <div class="formacao-item">
+                                <div class="formacao-icone">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Graduação em Engenharia de Produção</strong>
+                                    <span>Visão sistêmica de processos, planejamento, controle de qualidade e otimização de recursos em projetos e operações.</span>
+                                </div>
+                            </div>
 
-                    <!-- Item 4: Solar Comercial -->
-                    <div class="card-foto" data-categoria="solar">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="Geração Solar Comercial">
-                            <span class="badge-area">Energia Solar</span>
-                        </div>
-                        <div class="foto-info">
-                            <h4>Geração Distribuída Comercial</h4>
-                            <p>Projeto de alta eficiência para redução de demanda energética empresarial.</p>
-                        </div>
-                    </div>
+                            <div class="formacao-item">
+                                <div class="formacao-icone">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Técnico em Eletrotécnica</strong>
+                                    <span>Base técnica para instalações elétricas, quadros de distribuição (QDC), padrões de entrada e sistemas fotovoltaicos.</span>
+                                </div>
+                            </div>
 
-                    <!-- Item 5: Elétrica Predial -->
-                    <div class="card-foto" data-categoria="eletrica">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=800&q=80" alt="Infraestrutura Elétrica Predial">
-                            <span class="badge-area">Elétrica Residencial & Predial</span>
-                        </div>
-                        <div class="foto-info">
-                            <h4>Infraestrutura e Padrão de Entrada</h4>
-                            <p>Adequação de carga, aterramento e cabeamento estruturado para edificações.</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 6: Automação de Portões -->
-                    <div class="card-foto" data-categoria="automacao">
-                        <div class="foto-wrapper">
-                            <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="Automatização de Portões e Controle">
-                            <span class="badge-area">Automações</span>
-                        </div>
-                        <div class="foto-info">
-                            <h4>Automatização de Portões & Segurança</h4>
-                            <p>Motores de alta velocidade, sensores antiesmagamento e acionamento remoto via app.</p>
+                            <div class="formacao-item">
+                                <div class="formacao-icone">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                                </div>
+                                <div>
+                                    <strong>Técnico em Automação</strong>
+                                    <span>Conhecimento prático em comandos, integração de dispositivos inteligentes, sensores, portões e controle de acesso.</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- BLOCO 4: SIMULADOR SOLAR (Fundo Escuro para contraste) -->
+        <!-- BLOCO 5: SIMULADOR SOLAR (Fundo Escuro) -->
         <section id="simulador" class="secao-escura">
             <div class="container">
                 <div class="simulador-clean">
                     <div class="simulador-controles">
-                        <span class="tag-secao">SIMULADOR DE VIABILIDADE</span>
+                        <span class="tag-secao">SIMULADOR SOLAR</span>
                         <h2>Estime sua economia com Energia Solar</h2>
                         <p>Arraste o controle abaixo para indicar o valor médio mensal da sua conta de luz:</p>
 
@@ -316,94 +622,25 @@
             </div>
         </section>
 
-        <!-- BLOCO 5: SOBRE O TÉCNICO E FORMAÇÕES (Fundo Branco Clean) -->
-        <section id="tecnico" class="secao-clara">
-            <div class="container">
-                <div class="perfil-tecnico-grid">
-                    <!-- Coluna da Foto / Crachá Técnico -->
-                    <div class="perfil-foto-box">
-                        <!-- Substitua o src pela foto profissional do técnico -->
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Responsável Técnico LS Rodrigues Engenharia" class="foto-tecnico">
-                        <div class="cracha-registro">
-                            <span class="cracha-label">RESPONSABILIDADE TÉCNICA</span>
-                            <strong>Registro Ativo — CFT / CRT-ES</strong>
-                            <span>Emissão de TRT para Projetos e Laudos</span>
-                        </div>
-                    </div>
-
-                    <!-- Coluna de Biografia e Formações -->
-                    <div class="perfil-conteudo">
-                        <span class="tag-secao">RESPONSÁVEL TÉCNICO</span>
-                        <h2>Experiência prática e qualificação normativa em cada projeto</h2>
-                        <p class="perfil-bio">
-                            À frente da <strong>LS Rodrigues Engenharia</strong>, atua diretamente no planejamento, dimensionamento e supervisão de obras elétricas, sistemas fotovoltaicos e automação no Espírito Santo. O compromisso é entregar instalações limpas, seguras e documentadas, sem improvisos e em total conformidade com as normas técnicas vigentes.
-                        </p>
-
-                        <div class="formacoes-lista">
-                            <div class="formacao-item">
-                                <div class="formacao-icone">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                                </div>
-                                <div>
-                                    <strong>Formação Técnica em Eletrotécnica & Sistemas de Potência</strong>
-                                    <span>Habilitação profissional para projetos de baixa tensão, quadros de comando e padrões de entrada.</span>
-                                </div>
-                            </div>
-
-                            <div class="formacao-item">
-                                <div class="formacao-icone">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/></svg>
-                                </div>
-                                <div>
-                                    <strong>Especialização em Energia Solar Fotovoltaica (NBR 16690)</strong>
-                                    <span>Dimensionamento de usinas On-Grid/Off-Grid, string box e homologação junto à concessionária EDP.</span>
-                                </div>
-                            </div>
-
-                            <div class="formacao-item">
-                                <div class="formacao-icone">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                </div>
-                                <div>
-                                    <strong>Certificações de Segurança NR-10 e NR-35</strong>
-                                    <span>Qualificação obrigatória para segurança em instalações elétricas e trabalhos em altura (telhados e coberturas).</span>
-                                </div>
-                            </div>
-
-                            <div class="formacao-item">
-                                <div class="formacao-icone">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                                </div>
-                                <div>
-                                    <strong>Automação Predial, Residencial e Controle de Acesso</strong>
-                                    <span>Integração de dispositivos inteligentes, relés Wi-Fi/Zigbee, fechaduras digitais e automatizadores de portão.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BLOCO 6: FORMULÁRIO DE ORÇAMENTO (Fundo Escuro Imersivo) -->
-        <section id="orcamento" class="secao-escura">
+        <!-- BLOCO 6: FORMULÁRIO DE ORÇAMENTO (Fundo Claro para intercalar com o Simulador Escuro) -->
+        <section id="orcamento" class="secao-clara secao-orcamento-clara">
             <div class="container">
                 <div class="layout-contato">
-                    <div class="contato-info">
+                    <div class="contato-info-claro">
                         <span class="tag-secao">ATENDIMENTO TÉCNICO</span>
                         <h2>Solicite um orçamento ou visita técnica</h2>
-                        <p>Preencha as informações básicas do seu imóvel. Nossa equipe receberá sua solicitação estruturada diretamente via WhatsApp.</p>
+                        <p>Preencha as informações básicas do seu imóvel. Sua solicitação será enviada estruturada diretamente para o WhatsApp da equipe.</p>
                         
-                        <div class="canais-diretos">
-                            <div class="canal-item">
+                        <div class="canais-diretos-claro">
+                            <div class="canal-item-claro">
                                 <span>WhatsApp Comercial & Técnico</span>
                                 <strong>(27) 99520-7409</strong>
                             </div>
-                            <div class="canal-item">
+                            <div class="canal-item-claro">
                                 <span>Instagram</span>
                                 <strong>@lsrodrigueseng</strong>
                             </div>
-                            <div class="canal-item">
+                            <div class="canal-item-claro">
                                 <span>Área de Atendimento</span>
                                 <strong>Serra, Vitória, Vila Velha, Cariacica e ES</strong>
                             </div>
@@ -475,21 +712,46 @@
         </section>
     </main>
 
-    <!-- Rodapé Minimalista -->
-    <footer class="rodape-clean">
-        <div class="container flex-between">
-            <div>
-                <strong>LS RODRIGUES ENGENHARIA</strong>
-                <span>Energia Solar • Instalações Elétricas • Automação</span>
+    <!-- Rodapé Completo -->
+    <footer class="rodape-completo">
+        <div class="container">
+            <div class="rodape-grid">
+                <div class="rodape-marca">
+                    <strong>LS RODRIGUES ENGENHARIA</strong>
+                    <p>Soluções em energia solar fotovoltaica, instalações elétricas residenciais e prediais, e automação com foco em segurança e eficiência.</p>
+                    <span class="rodape-cnpj">CNPJ: 33.844.825/0001-41</span>
+                </div>
+
+                <div class="rodape-coluna">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#solucoes">Soluções</a></li>
+                        <li><a href="#projetos">Obras & Projetos</a></li>
+                        <li><a href="#tecnico">O Técnico</a></li>
+                        <li><a href="#simulador">Simulador Solar</a></li>
+                        <li><a href="#orcamento">Solicitar Orçamento</a></li>
+                    </ul>
+                </div>
+
+                <div class="rodape-coluna">
+                    <h4>Contato & Atendimento</h4>
+                    <ul>
+                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/5527996393464" target="_blank">27 99639-3464</a></li>
+                        <li><strong>Instagram:</strong> <a href="https://instagram.com/lsrodrigueseng" target="_blank">@lsrodrigueseng</a></li>
+                        <li><strong>Região:</strong> Serra, Grande Vitória e Espírito Santo</li>
+                    </ul>
+                </div>
             </div>
-            <div class="rodape-dir">
+
+            <div class="rodape-base">
+                <span>© <span id="ano-atual">2026</span> LS Rodrigues Engenharia. Todos os direitos reservados.</span>
                 <span>Espírito Santo — Brasil</span>
             </div>
         </div>
     </footer>
 
     <!-- Botão Flutuante -->
-    <a href="https://wa.me/5527995207409" target="_blank" class="whatsapp-clean" aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5527996393464" target="_blank" class="whatsapp-clean" aria-label="Falar no WhatsApp">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         <span>Falar com Técnico</span>
     </a>
