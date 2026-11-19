@@ -10,7 +10,28 @@ document.querySelectorAll('.menu a').forEach(link => {
     link.addEventListener('click', () => navMenu.classList.remove('aberto'));
 });
 
-// 2. Simulador de Economia Solar
+// 2. Filtro da Galeria de Obras por Área
+const botoesFiltro = document.querySelectorAll('.filtro-btn');
+const cardsFoto = document.querySelectorAll('.card-foto');
+
+botoesFiltro.forEach(botao => {
+    botao.addEventListener('click', () => {
+        botoesFiltro.forEach(btn => btn.classList.remove('ativo'));
+        botao.classList.add('ativo');
+
+        const categoria = botao.getAttribute('data-filtro');
+
+        cardsFoto.forEach(card => {
+            if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+                card.classList.remove('oculto');
+            } else {
+                card.classList.add('oculto');
+            }
+        });
+    });
+});
+
+// 3. Simulador de Economia Solar
 const sliderConta = document.getElementById('valor-conta');
 const displayConta = document.getElementById('display-conta');
 const displayMensal = document.getElementById('economia-mensal');
@@ -34,7 +55,7 @@ function atualizarSimulador() {
 sliderConta.addEventListener('input', atualizarSimulador);
 atualizarSimulador();
 
-// 3. Seleção Automática de Serviço ao clicar nos Cards ou Portal
+// 4. Seleção Automática de Serviço ao clicar nos Cards ou Portal
 const selectServico = document.getElementById('tipo-servico');
 const campoDetalhes = document.getElementById('detalhes-projeto');
 
@@ -52,7 +73,7 @@ btnExportarSimulacao.addEventListener('click', () => {
     campoDetalhes.value = `Simulação no site: Conta média de ${displayConta.textContent}/mês (Economia estimada de ${displayMensal.textContent}/mês).`;
 });
 
-// 4. Envio Estruturado para WhatsApp com Protocolo
+// 5. Envio Estruturado para WhatsApp com Protocolo
 const formOrcamento = document.getElementById('form-orcamento');
 const inputData = document.getElementById('data-visita');
 

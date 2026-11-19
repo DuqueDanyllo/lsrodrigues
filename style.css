@@ -8,8 +8,8 @@
     --solar-amber: #F59E0B;        /* Amarelo solar para valores financeiros */
     
     /* Superfícies Claras e Escuras */
-    --branco: #ffffff;
-    --cinza-gelo: #F8FAFC;
+    --branco: #FFFFFF;
+    --cinza-gelo: #F4F7F9;
     --cinza-borda-clara: #E2E8F0;
     --cinza-borda-escura: rgba(255, 255, 255, 0.1);
     --borda-turquesa-sutil: rgba(0, 168, 150, 0.3);
@@ -139,7 +139,7 @@ h1, h2, h3, h4, strong {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
 }
 
 .menu a {
@@ -344,10 +344,6 @@ h1, h2, h3, h4, strong {
     background-color: var(--branco);
 }
 
-.borda-inferior {
-    border-bottom: 1px solid var(--cinza-borda-clara);
-}
-
 .cabecalho-minimalista {
     max-width: 620px;
     margin-bottom: 48px;
@@ -381,7 +377,6 @@ h1, h2, h3, h4, strong {
     gap: 24px;
 }
 
-/* Cards Escuros dentro da Seção Clara */
 .card-clean {
     background-color: var(--petroleo-profundo);
     border: 1px solid var(--borda-turquesa-sutil);
@@ -481,9 +476,124 @@ h1, h2, h3, h4, strong {
     gap: 10px;
 }
 
-/* --- BLOCO 3: SIMULADOR SOLAR (Fundo Escuro / Gelo Alternado) --- */
-.secao-escura,
-.secao-gelo {
+/* --- BLOCO 3: GALERIA DE SERVIÇOS POR ÁREA --- */
+.secao-galeria {
+    padding: 88px 0;
+    background-color: var(--cinza-gelo);
+    border-top: 1px solid var(--cinza-borda-clara);
+}
+
+.galeria-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.filtros-galeria {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filtro-btn {
+    background-color: var(--branco);
+    color: var(--texto-suave);
+    border: 1px solid var(--cinza-borda-clara);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filtro-btn:hover {
+    border-color: var(--turquesa-logo);
+    color: var(--petroleo-profundo);
+}
+
+.filtro-btn.ativo {
+    background-color: var(--petroleo-profundo);
+    color: var(--branco);
+    border-color: var(--petroleo-profundo);
+}
+
+.grid-portfolio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card-foto {
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-borda-clara);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.card-foto.oculto {
+    display: none;
+}
+
+.card-foto:hover {
+    transform: translateY(-4px);
+    border-color: var(--turquesa-logo);
+    box-shadow: 0 14px 30px rgba(5, 26, 41, 0.08);
+}
+
+.foto-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--petroleo-profundo);
+}
+
+.foto-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-foto:hover .foto-wrapper img {
+    transform: scale(1.05);
+}
+
+.badge-area {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: rgba(5, 26, 41, 0.9);
+    color: var(--turquesa-vivo);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 210, 184, 0.3);
+}
+
+.foto-info {
+    padding: 22px;
+}
+
+.foto-info h4 {
+    font-size: 1.08rem;
+    color: var(--petroleo-profundo);
+    margin-bottom: 6px;
+}
+
+.foto-info p {
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+}
+
+/* --- BLOCO 4: SIMULADOR SOLAR (Fundo Escuro) --- */
+.secao-escura {
     padding: 88px 0;
     background-color: var(--petroleo-profundo);
     color: var(--texto-claro);
@@ -577,7 +687,6 @@ input[type="range"] {
 }
 
 .destaque-turquesa { color: var(--turquesa-vivo); }
-.destaque-petroleo,
 .destaque-branco { color: var(--branco); }
 
 .divisor-horizontal {
@@ -592,7 +701,6 @@ input[type="range"] {
     margin: 20px 0;
 }
 
-.btn-petroleo-full,
 .btn-turquesa-full {
     display: block;
     width: 100%;
@@ -609,56 +717,124 @@ input[type="range"] {
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.btn-petroleo-full:hover,
 .btn-turquesa-full:hover {
     background-color: var(--turquesa-hover);
     transform: translateY(-1px);
 }
 
-/* --- BLOCO 4: DIFERENCIAIS TÉCNICOS (Fundo Claro Clean) --- */
-.grid-diferenciais-clean {
+/* --- BLOCO 5: SOBRE O TÉCNICO E FORMAÇÕES (Fundo Branco Clean) --- */
+.perfil-tecnico-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: center;
 }
 
-.dif-clean {
+.perfil-foto-box {
+    position: relative;
+}
+
+.foto-tecnico {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--cinza-borda-clara);
+    display: block;
+}
+
+.cracha-registro {
+    background-color: var(--petroleo-profundo);
+    color: var(--branco);
+    padding: 20px 24px;
+    border-radius: 8px;
+    border-left: 4px solid var(--turquesa-logo);
+    margin-top: -40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(5, 26, 41, 0.2);
+}
+
+.cracha-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--turquesa-vivo);
+    margin-bottom: 4px;
+}
+
+.cracha-registro strong {
+    display: block;
+    font-size: 1.05rem;
+}
+
+.cracha-registro span:last-child {
+    font-size: 0.82rem;
+    color: var(--texto-claro-muted);
+}
+
+.perfil-conteudo h2 {
+    font-size: 2rem;
+    color: var(--petroleo-profundo);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.perfil-bio {
+    color: var(--texto-suave);
+    font-size: 0.96rem;
+    margin-bottom: 28px;
+}
+
+.formacoes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formacao-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
     background-color: var(--cinza-gelo);
     border: 1px solid var(--cinza-borda-clara);
     border-radius: 8px;
-    padding: 28px;
-    transition: border-color 0.25s;
+    transition: border-color 0.2s;
 }
 
-.dif-clean:hover {
+.formacao-item:hover {
     border-color: var(--turquesa-logo);
 }
 
-.num-clean {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--turquesa-logo);
-    margin-bottom: 10px;
-}
-
-.dif-clean h4 {
-    font-size: 1.15rem;
-    color: var(--petroleo-profundo);
-    margin-bottom: 8px;
-}
-
-.dif-clean p {
-    font-size: 0.92rem;
-    color: var(--texto-suave);
-}
-
-/* --- BLOCO 5: FORMULÁRIO DE ORÇAMENTO (Fundo Escuro Imersivo) --- */
-#orcamento {
+.formacao-icone {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
     background-color: var(--petroleo-profundo);
-    color: var(--texto-claro);
+    color: var(--turquesa-vivo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
+.formacao-item strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--petroleo-profundo);
+    margin-bottom: 2px;
+}
+
+.formacao-item span {
+    font-size: 0.84rem;
+    color: var(--texto-suave);
+    display: block;
+}
+
+/* --- BLOCO 6: FORMULÁRIO DE ORÇAMENTO (Fundo Escuro Imersivo) --- */
 .layout-contato {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
@@ -804,14 +980,19 @@ input[type="range"] {
 @media (max-width: 960px) {
     .hero-grid,
     .grid-servicos,
+    .grid-portfolio,
     .simulador-clean,
-    .grid-diferenciais-clean,
+    .perfil-tecnico-grid,
     .layout-contato {
         grid-template-columns: 1fr;
     }
 
     .normas-topo {
         display: none;
+    }
+
+    .foto-tecnico {
+        height: 360px;
     }
 }
 
