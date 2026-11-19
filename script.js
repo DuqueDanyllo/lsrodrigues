@@ -15,6 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Evita ícone de imagem quebrada enquanto as mídias de automação não sobem
+        document.querySelectorAll(".carrossel-slide img").forEach((img) => {
+            img.addEventListener("error", () => {
+                const box = img.closest(".midia-box");
+                if (box && !box.querySelector(".placeholder-midia")) {
+                    img.style.display = "none";
+                    const aviso = document.createElement("div");
+                    aviso.className = "placeholder-midia";
+                    aviso.innerHTML = `
+                        <strong>Mídia em breve</strong>
+                        <span>Caminho configurado: <code>${img.getAttribute("src")}</code></span>
+                    `;
+                    box.appendChild(aviso);
+                }
+            });
+        });
+
     // Troca de abas do carrossel (sem opção "Todos")
     const abasBtns = document.querySelectorAll(".filtros-galeria .filtro-btn");
     const paineis = document.querySelectorAll(".carrossel-painel");
